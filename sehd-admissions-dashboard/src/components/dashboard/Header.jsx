@@ -28,7 +28,7 @@ const Header = ({ userName, userRole }) => {
         <div className="dropdown">
           <button className="dropdown-toggle">
             <img 
-              src="/profile-placeholder.png" 
+              src="/profile-placeholder.jpg" 
               alt="User profile" 
               onError={(e) => {
                 e.target.src = "https://via.placeholder.com/40x40";

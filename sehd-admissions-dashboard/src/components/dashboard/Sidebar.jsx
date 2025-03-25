@@ -14,7 +14,7 @@ const Sidebar = ({ activeView, setActiveView }) => {
   return (
     <div className="sidebar">
       <div className="sidebar-logo">
-        <img src="/logo-umiami-white.png" alt="University of Miami" 
+        <img src="/sebastian-ibis.jpg" alt="University of Miami" 
           onError={(e) => {
             e.target.src = "https://via.placeholder.com/120x50?text=UMiami";
           }}

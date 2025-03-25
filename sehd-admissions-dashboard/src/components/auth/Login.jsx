@@ -45,7 +45,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-form-wrapper">
         <div className="login-logo">
-          <img src="/logo-umiami.png" alt="University of Miami Logo" />
+          <img src="/sebastian-ibis.jpg" alt="University of Miami Logo" />
         </div>
         <h1>Admissions Dashboard</h1>
         <form className="login-form" onSubmit={handleSubmit}>
