@@ -47,7 +47,7 @@ const Login = () => {
         <div className="login-logo">
           <img src="/sebastian-ibis.jpg" alt="University of Miami Logo" />
         </div>
-        <h1>SEHD Dashboard</h1>
+        <h1 class="miami-style">SEHD Dashboard</h1>
         <form className="login-form" onSubmit={handleSubmit}>
           {error && <div className="error-message">{error}</div>}
           

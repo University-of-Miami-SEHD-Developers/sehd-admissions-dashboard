@@ -11,6 +11,7 @@ import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
 import AdmissionsDataGrid from '../grid/AdmissionsDataGrid';
+import DashboardContent from './DashboardContent'; // Import the new DashboardContent component
 import { rows as spring24Rows, cols as spring24Cols } from '../../data/Spring24';
 import { rows as summer24Rows, cols as summer24Cols } from '../../data/Summer24';
 import { rows as fall24Rows, cols as fall24Cols } from '../../data/Fall24';
@@ -20,6 +21,7 @@ import { rows as fall23Rows, cols as fall23Cols } from '../../data/Fall23';
 import { rows as spring22Rows, cols as spring22Cols } from '../../data/Spring22';
 import { rows as summer22Rows, cols as summer22Cols } from '../../data/Summer22';
 import { rows as fall22Rows, cols as fall22Cols } from '../../data/Fall22';
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -135,8 +137,11 @@ function DemoPageContent({ pathname }) {
             <AdmissionsDataGrid rows={fall22Rows} cols={fall22Cols} />
           </TabPanel>
         </>
+      ) : pathname === '/dashboard' ? (
+        // Use the DashboardContent component for the dashboard path
+        <DashboardContent />
       ) : (
-        <Typography>Dashboard content for {pathname}</Typography>
+        <Typography>Other content for {pathname}</Typography>
       )}
     </Box>
   );
