@@ -71,7 +71,7 @@ const programStats = [
   }
 ];
 
-const DashboardContent = () => {
+const StatCardLayout = () => {
   return (
     <Box sx={{ flexGrow: 1, p: 3 }}>
       <Typography variant="h4" component="h1" gutterBottom>
@@ -127,4 +127,4 @@ const DashboardContent = () => {
   );
 };
 
-export default DashboardContent;
+export default StatCardLayout;
