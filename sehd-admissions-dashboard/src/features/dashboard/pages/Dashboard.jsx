@@ -12,7 +12,7 @@ import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
 import StatCardLayout from '../../visualizations/layouts/StatCardLayout';
-import AdmissionsTabsLayout from '../../visualizations/layouts/AdmissionsTabsLayout';
+import AdmissionsTabsLayout from '../../admissions/layouts/AdmissionsTabsLayout';
 import GaugeLayout from '../../visualizations/layouts/GaugeLayout';
 import AnalysisLayout from '../../visualizations/layouts/AnalysisLayout';
 
