@@ -11,10 +11,10 @@ import SchoolIcon from '@mui/icons-material/School';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
-import StatCardLayout from '../components/layouts/StatCardLayout';
-import AdmissionsTabsLayout from '../components/layouts/AdmissionsTabsLayout';
-import GaugeLayout from '../components/layouts/GaugeLayout';
-import AnalysisLayout from '../components/layouts/AnalysisLayout';
+import StatCardLayout from '../../visualizations/layouts/StatCardLayout';
+import AdmissionsTabsLayout from '../../visualizations/layouts/AdmissionsTabsLayout';
+import GaugeLayout from '../../visualizations/layouts/GaugeLayout';
+import AnalysisLayout from '../../visualizations/layouts/AnalysisLayout';
 
 const demoTheme = createTheme({
   cssVariables: {

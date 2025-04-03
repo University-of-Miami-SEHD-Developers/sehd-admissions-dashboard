@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Divider from '@mui/material/Divider';
-import StatCard from '../visualizations/StatCard';
+import StatCard from '../components/StatCard';
 
 // Mock data for the StatCards
 const dashboardStats = [

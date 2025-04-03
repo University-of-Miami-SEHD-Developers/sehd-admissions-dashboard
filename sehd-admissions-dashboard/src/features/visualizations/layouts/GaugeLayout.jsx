@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import GradientGauge from '../visualizations/Gauge';
+import GradientGauge from '../components/Gauge';
 
 const GaugeLayout = () => {
   return (
@@ -51,7 +51,7 @@ const GaugeLayout = () => {
             colors={['#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0']}
           />
         </Grid>
-        
+
         <Grid item xs={12} md={6} lg={3}>
           <GradientGauge 
             value={45} 

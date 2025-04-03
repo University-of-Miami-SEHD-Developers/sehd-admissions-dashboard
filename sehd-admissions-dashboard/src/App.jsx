@@ -1,10 +1,10 @@
 // src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import AuthProvider from './context/AuthContext';
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import Login from './components/auth/Login';
-import Dashboard from './pages/Dashboard';
+import AuthProvider from './features/auth/context/AuthContext'; //src\features\auth\context\AuthContext.jsx
+import ProtectedRoute from './features/auth/components/ProtectedRoute';
+import Login from './features/auth/components/Login';
+import Dashboard from './features/dashboard/pages/Dashboard';
 import './styles/global.css';
 
 const App = () => {
