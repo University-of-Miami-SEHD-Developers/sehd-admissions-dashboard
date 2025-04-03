@@ -51,7 +51,48 @@ const GaugeLayout = () => {
             colors={['#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0']}
           />
         </Grid>
+        
+        <Grid item xs={12} md={6} lg={3}>
+          <GradientGauge 
+            value={45} 
+            maxValue={100} 
+            title="Budget Utilization" 
+            subtitle="Q2 2025"
+            colors={['#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0']}
+          />
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={3}>
+          <GradientGauge 
+            value={45} 
+            maxValue={100} 
+            title="Budget Utilization" 
+            subtitle="Q2 2025"
+            colors={['#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0']}
+          />
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={3}>
+          <GradientGauge 
+            value={45} 
+            maxValue={100} 
+            title="Budget Utilization" 
+            subtitle="Q2 2025"
+            colors={['#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0']}
+          />
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={3}>
+          <GradientGauge 
+            value={45} 
+            maxValue={100} 
+            title="Budget Utilization" 
+            subtitle="Q2 2025"
+            colors={['#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0']}
+          />
+        </Grid>
       </Grid>
+      
     </Box>
   );
 };

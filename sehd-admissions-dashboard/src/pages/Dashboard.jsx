@@ -11,10 +11,10 @@ import SchoolIcon from '@mui/icons-material/School';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
-import LineChartComponent from '../components/visualizations/LineGraph';
 import StatCardLayout from '../components/layouts/StatCardLayout';
 import AdmissionsTabsLayout from '../components/layouts/AdmissionsTabsLayout';
 import GaugeLayout from '../components/layouts/GaugeLayout';
+import AnalysisLayout from '../components/layouts/AnalysisLayout';
 
 const demoTheme = createTheme({
   cssVariables: {
@@ -49,7 +49,7 @@ function DemoPageContent({ pathname }) {
       ) : pathname === '/dashboards/trends' ? (
         <StatCardLayout />
       ) : pathname === '/dashboards/analysis' ? (
-        <LineChartComponent title="Monthly Sales Performance" />
+        <AnalysisLayout/>
       ) : pathname === '/dashboards/goals' ? (
         <GaugeLayout />
       ): (
@@ -70,7 +70,7 @@ const Dashboard = (props) => {
   return (
     <AppProvider 
       branding={{
-        logo: <img src="/UM.png" alt="UM logo" />,
+        logo: <img src="/src/assets/UM.png" alt="UM logo" />,
         title: 'SEHD Dashboard',
         homeUrl: '/home',
       }}
