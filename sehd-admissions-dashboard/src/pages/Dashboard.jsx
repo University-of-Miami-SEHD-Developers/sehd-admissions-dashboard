@@ -14,6 +14,7 @@ import { useDemoRouter } from '@toolpad/core/internal';
 import LineChartComponent from '../components/visualizations/LineGraph';
 import StatCardLayout from '../components/layouts/StatCardLayout';
 import AdmissionsTabsLayout from '../components/layouts/AdmissionsTabsLayout';
+import GaugeLayout from '../components/layouts/GaugeLayout';
 
 const demoTheme = createTheme({
   cssVariables: {
@@ -49,7 +50,9 @@ function DemoPageContent({ pathname }) {
         <StatCardLayout />
       ) : pathname === '/dashboards/analysis' ? (
         <LineChartComponent title="Monthly Sales Performance" />
-      ) : (
+      ) : pathname === '/dashboards/goals' ? (
+        <GaugeLayout />
+      ): (
         <Typography>Other content for {pathname}</Typography>
       )}
     </Box>
