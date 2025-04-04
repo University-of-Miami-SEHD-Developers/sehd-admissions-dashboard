@@ -74,7 +74,7 @@ const DoughnutChart = ({
   }, [data, options, legendPosition, cutout]);
 
   return (
-    <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+    <Card variant="outlined" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         {title && (
           <Typography variant="h6" gutterBottom component="div" sx={{ mb: 2 }}>

@@ -4,9 +4,11 @@ import Grid from '@mui/material/Grid';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TabPanel, { a11yProps } from '../../shared/components/TabPanel';
-import AdmissionsDataGrid from '../admissions/components/AdmissionsDataGrid';
+//import AdmissionsDataGrid from '../admissions/components/AdmissionsDataGrid';
 import LineChartComponent from './components/LineGraph';
 import DoughnutChart from './components/DoughnutChart';
+import AnalysisCards from './components/AnalysisCards';
+import Divider from '@mui/material/Divider';
 
 // Import the data
 import { rows as spring24Rows, cols as spring24Cols } from '../admissions/data/Spring24';
@@ -119,6 +121,8 @@ const AnalysisPage = () => {
         </Tabs>
       </Box>
       <TabPanel value={tabValue} index={0} style={{ width: '100%' }}>
+        <AnalysisCards programTab="TAL" />
+        <Divider sx={{ my: 3 }} />
         <Grid container spacing={3}>
           <Grid item xs={12} md={8}>
             <LineChartComponent title="TAL Performance" />
@@ -133,6 +137,8 @@ const AnalysisPage = () => {
         </Grid>
       </TabPanel>
       <TabPanel value={tabValue} index={1} style={{ width: '100%' }}>
+        <AnalysisCards programTab="KIN" />
+        <Divider sx={{ my: 3 }} />
         <Grid container spacing={3}>
           <Grid item xs={12} md={8}>
             <LineChartComponent title="KIN Performance" />
@@ -147,6 +153,8 @@ const AnalysisPage = () => {
         </Grid>
       </TabPanel>
       <TabPanel value={tabValue} index={2} style={{ width: '100%' }}>
+        <AnalysisCards programTab="EPS" />
+        <Divider sx={{ my: 3 }} />
         <Grid container spacing={3}>
           <Grid item xs={12} md={8}>
             <LineChartComponent title="EPS Performance" />
