@@ -2,21 +2,21 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import TabPanel, { a11yProps } from '../../../shared/components/TabPanel';
-import AdmissionsDataGrid from '../../admissions/components/AdmissionsDataGrid';
+import TabPanel, { a11yProps } from '../../shared/components/TabPanel';
+import AdmissionsDataGrid from './components/AdmissionsDataGrid';
 
 // Import the data
-import { rows as spring24Rows, cols as spring24Cols } from '../../admissions/data/Spring24';
-import { rows as summer24Rows, cols as summer24Cols } from '../../admissions/data/Summer24';
-import { rows as fall24Rows, cols as fall24Cols } from '../../admissions/data/Fall24';
-import { rows as spring23Rows, cols as spring23Cols } from '../../admissions/data/Spring23';
-import { rows as summer23Rows, cols as summer23Cols } from '../../admissions/data/Summer23';
-import { rows as fall23Rows, cols as fall23Cols } from '../../admissions/data/Fall23';
-import { rows as spring22Rows, cols as spring22Cols } from '../../admissions/data/Spring22';
-import { rows as summer22Rows, cols as summer22Cols } from '../../admissions/data/Summer22';
-import { rows as fall22Rows, cols as fall22Cols } from '../../admissions/data/Fall22';
+import { rows as spring24Rows, cols as spring24Cols } from './data/Spring24';
+import { rows as summer24Rows, cols as summer24Cols } from './data/Summer24';
+import { rows as fall24Rows, cols as fall24Cols } from './data/Fall24';
+import { rows as spring23Rows, cols as spring23Cols } from './data/Spring23';
+import { rows as summer23Rows, cols as summer23Cols } from './data/Summer23';
+import { rows as fall23Rows, cols as fall23Cols } from './data/Fall23';
+import { rows as spring22Rows, cols as spring22Cols } from './data/Spring22';
+import { rows as summer22Rows, cols as summer22Cols } from './data/Summer22';
+import { rows as fall22Rows, cols as fall22Cols } from './data/Fall22';
 
-const AdmissionsTabsLayout = () => {
+const AdmissionsDataPage = () => {
   const [tabValue, setTabValue] = React.useState(0);
 
   const handleTabChange = (event, newValue) => {
@@ -74,4 +74,4 @@ const AdmissionsTabsLayout = () => {
   );
 };
 
-export default AdmissionsTabsLayout;
+export default AdmissionsDataPage;

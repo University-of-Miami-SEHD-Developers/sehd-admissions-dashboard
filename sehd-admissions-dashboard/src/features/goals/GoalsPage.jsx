@@ -2,9 +2,9 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import GradientGauge from '../components/Gauge';
+import GradientGauge from './components/Gauge';
 
-const GaugeLayout = () => {
+const GoalsPage = () => {
   return (
     <Box sx={{ width: '100%', p: 2 }}>
       <Typography variant="h4" component="h1" gutterBottom>
@@ -97,4 +97,4 @@ const GaugeLayout = () => {
   );
 };
 
-export default GaugeLayout;
+export default GoalsPage;

@@ -11,10 +11,14 @@ import SchoolIcon from '@mui/icons-material/School';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
-import StatCardLayout from '../../visualizations/layouts/StatCardLayout';
-import AdmissionsTabsLayout from '../../admissions/layouts/AdmissionsTabsLayout';
-import GaugeLayout from '../../visualizations/layouts/GaugeLayout';
-import AnalysisLayout from '../../visualizations/layouts/AnalysisLayout';
+//import StatCardLayout from '../../components/layouts/StatCardLayout';
+import TrendsPage from '../../trends/TrendsPage';
+//import AdmissionsTabsLayout from '../../admissions/AdmissionsDataPage';
+import AdmissionsDataPage from '../../admissions/AdmissionsDataPage';
+//import GaugeLayout from '../../components/layouts/GaugeLayout';
+import GoalsPage from '../../goals/GoalsPage';
+//import AnalysisLayout from '../../components/layouts/AnalysisLayout';
+import AnalysisPage from '../../analysis/AnalysisPage';
 
 const demoTheme = createTheme({
   cssVariables: {
@@ -45,13 +49,13 @@ function DemoPageContent({ pathname }) {
       }}
     >
       {pathname === '/data' ? (
-        <AdmissionsTabsLayout />
+        <AdmissionsDataPage />
       ) : pathname === '/dashboards/trends' ? (
-        <StatCardLayout />
+        <TrendsPage />
       ) : pathname === '/dashboards/analysis' ? (
-        <AnalysisLayout/>
+        <AnalysisPage/>
       ) : pathname === '/dashboards/goals' ? (
-        <GaugeLayout />
+        <GoalsPage />
       ): (
         <Typography>Other content for {pathname}</Typography>
       )}
