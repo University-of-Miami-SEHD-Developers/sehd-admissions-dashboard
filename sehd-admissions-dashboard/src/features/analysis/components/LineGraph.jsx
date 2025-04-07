@@ -1,32 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import Chart from 'chart.js/auto';
+import graphData from '../data/GraphData'; // Import your data here
 
 const LineChartComponent = ({ title = 'Data Trends Over Time' }) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const theme = useTheme();
-
-  // Sample data - replace with your actual data
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: [65, 59, 80, 81, 56, 55, 40],
-        borderColor: 'rgb(75, 192, 192)',
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        tension: 0.4,
-      },
-      {
-        label: 'Dataset 2',
-        data: [28, 48, 40, 19, 86, 27, 90],
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        tension: 0.4,
-      }
-    ]
-  };
 
   // Chart configuration
   const options = {
@@ -86,7 +66,7 @@ const LineChartComponent = ({ title = 'Data Trends Over Time' }) => {
       const ctx = chartRef.current.getContext('2d');
       chartInstance.current = new Chart(ctx, {
         type: 'line',
-        data: data,
+        data: graphData,
         options: options
       });
     }
@@ -124,14 +104,3 @@ const LineChartComponent = ({ title = 'Data Trends Over Time' }) => {
 };
 
 export default LineChartComponent;
-
-// Usage example:
-// import LineChartComponent from './LineChartComponent';
-// 
-// function Dashboard() {
-//   return (
-//     <Container>
-//       <LineChartComponent title="Monthly Sales Performance" />
-//     </Container>
-//   );
-// }

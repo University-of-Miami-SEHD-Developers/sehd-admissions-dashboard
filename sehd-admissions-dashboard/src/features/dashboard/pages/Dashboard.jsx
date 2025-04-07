@@ -11,13 +11,9 @@ import SchoolIcon from '@mui/icons-material/School';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
-//import StatCardLayout from '../../components/layouts/StatCardLayout';
 import TrendsPage from '../../trends/TrendsPage';
-//import AdmissionsTabsLayout from '../../admissions/AdmissionsDataPage';
 import AdmissionsDataPage from '../../admissions/AdmissionsDataPage';
-//import GaugeLayout from '../../components/layouts/GaugeLayout';
 import GoalsPage from '../../goals/GoalsPage';
-//import AnalysisLayout from '../../components/layouts/AnalysisLayout';
 import AnalysisPage from '../../analysis/AnalysisPage';
 
 const demoTheme = createTheme({

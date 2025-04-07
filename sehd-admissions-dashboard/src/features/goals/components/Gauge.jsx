@@ -18,7 +18,8 @@ const GradientGauge = ({
   width = "100%",
   colors = ['#ff6384', '#36a2eb', '#4bc0c0', '#ffcd56'],
   thickness = 0.15,
-  showLegend = false
+  showLegend = false,
+  cardHeight = 375 // Added fixed card height prop with default
 }) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
@@ -100,17 +101,61 @@ const GradientGauge = ({
   }, [value, maxValue, minValue, colors, thickness, showLegend]);
 
   return (
-    <Card elevation={1} sx={{ width, height: 'auto', overflow: 'visible' }}>
-      <CardContent>
-        <Typography variant="h6" component="div" sx={{ mb: 1 }}>
-          {title}
-        </Typography>
-        {subtitle && (
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-            {subtitle}
+    <Card 
+      elevation={1} 
+      sx={{ 
+        width, 
+        height: cardHeight, 
+        overflow: 'hidden', 
+        display: 'flex',
+        flexDirection: 'column'
+      }}
+    >
+      <CardContent sx={{ 
+        height: '100%', 
+        display: 'flex',
+        flexDirection: 'column',
+        padding: 2
+      }}>
+        {/* Fixed height title area with ellipsis for overflow */}
+        <Box sx={{ height: 80, mb: 1 }}>
+          <Typography 
+            variant="h7" 
+            component="div" 
+            sx={{ 
+              mb: 1,
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical'
+            }}
+          >
+            {title}
           </Typography>
-        )}
-        <Box sx={{ position: 'relative', height, width: '100%' }}>
+          {subtitle && (
+            <Typography 
+              variant="body2" 
+              color="text.secondary"
+              sx={{ 
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              {subtitle}
+            </Typography>
+          )}
+        </Box>
+        
+        {/* Chart area takes remaining space */}
+        <Box sx={{ 
+          position: 'relative', 
+          flexGrow: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
           <canvas ref={chartRef} />
           <Box 
             sx={{ 
@@ -144,7 +189,8 @@ GradientGauge.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   colors: PropTypes.arrayOf(PropTypes.string),
   thickness: PropTypes.number,
-  showLegend: PropTypes.bool
+  showLegend: PropTypes.bool,
+  cardHeight: PropTypes.number
 };
 
 export default GradientGauge;

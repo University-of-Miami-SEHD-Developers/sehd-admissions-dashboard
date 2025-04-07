@@ -9,7 +9,7 @@ import CardContent from '@mui/material/CardContent';
 // Register required Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const DoughnutChart = ({ 
+const DonutChart = ({ 
   title, 
   data, 
   height = 300, 
@@ -89,7 +89,7 @@ const DoughnutChart = ({
   );
 };
 
-DoughnutChart.propTypes = {
+DonutChart.propTypes = {
   title: PropTypes.string,
   data: PropTypes.shape({
     labels: PropTypes.array.isRequired,
@@ -111,4 +111,4 @@ DoughnutChart.propTypes = {
   cutout: PropTypes.string
 };
 
-export default DoughnutChart;
+export default DonutChart;

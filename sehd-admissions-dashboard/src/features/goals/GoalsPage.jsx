@@ -40,7 +40,7 @@ const GoalsPage = () => {
               value={82} 
               maxValue={100} 
               title="Community and Applied Psychological Studies, B.S.Ed. " 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0']}
             />
           </Grid>
@@ -50,7 +50,7 @@ const GoalsPage = () => {
               value={68} 
               maxValue={100} 
               title="Data Analytics & Intelligence for Social Impact B.S.Ed. (DAISI)" 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0']}
             />
           </Grid>
@@ -60,7 +60,7 @@ const GoalsPage = () => {
               value={93} 
               maxValue={100} 
               title="Exercise Physiology, B.S." 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0']}
             />
           </Grid>
@@ -70,7 +70,7 @@ const GoalsPage = () => {
               value={45} 
               maxValue={100} 
               title="Sport Administration, B.S.Ed." 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0']}
             />
           </Grid>
@@ -80,7 +80,7 @@ const GoalsPage = () => {
               value={45} 
               maxValue={100} 
               title="Elementary Education/Exceptional Student Education, B.S.Ed." 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0']}
             />
           </Grid>
@@ -94,7 +94,7 @@ const GoalsPage = () => {
               value={75} 
               maxValue={100} 
               title="Counseling, M.S.Ed. " 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#36a2eb', '#4bc0c0', '#4caf50', '#8bc34a']}
             />
           </Grid>
@@ -104,7 +104,7 @@ const GoalsPage = () => {
               value={62} 
               maxValue={100} 
               title="Higher Education Administration, M.S.Ed." 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#36a2eb', '#4bc0c0', '#4caf50', '#8bc34a']}
             />
           </Grid>
@@ -114,7 +114,7 @@ const GoalsPage = () => {
               value={88} 
               maxValue={100} 
               title="Applied Physiology, M.S.Ed. " 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#36a2eb', '#4bc0c0', '#4caf50', '#8bc34a']}
             />
           </Grid>
@@ -124,7 +124,7 @@ const GoalsPage = () => {
               value={52} 
               maxValue={100} 
               title="Athletic Training, M.S.AT." 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#36a2eb', '#4bc0c0', '#4caf50', '#8bc34a']}
             />
           </Grid>
@@ -134,7 +134,7 @@ const GoalsPage = () => {
               value={52} 
               maxValue={100} 
               title="Sport Administration, M.S.Ed." 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#36a2eb', '#4bc0c0', '#4caf50', '#8bc34a']}
             />
           </Grid>
@@ -144,7 +144,7 @@ const GoalsPage = () => {
               value={52} 
               maxValue={100} 
               title="Education and Social Change, M.S.Ed." 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#36a2eb', '#4bc0c0', '#4caf50', '#8bc34a']}
             />
           </Grid>
@@ -154,7 +154,7 @@ const GoalsPage = () => {
               value={52} 
               maxValue={100} 
               title="Special Education, M.S.Ed." 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#36a2eb', '#4bc0c0', '#4caf50', '#8bc34a']}
             />
           </Grid>
@@ -168,7 +168,7 @@ const GoalsPage = () => {
               value={65} 
               maxValue={100} 
               title="Counseling Psychology, Ph.D. " 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#9966ff', '#c9cbff', '#ff9f7f', '#fb5607']}
             />
           </Grid>
@@ -178,7 +178,7 @@ const GoalsPage = () => {
               value={58} 
               maxValue={100} 
               title="Community Well-Being, Ph.D. " 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#9966ff', '#c9cbff', '#ff9f7f', '#fb5607']}
             />
           </Grid>
@@ -188,7 +188,7 @@ const GoalsPage = () => {
               value={95} 
               maxValue={100} 
               title="Executive Ed.D. in Higher Education Leadership " 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#9966ff', '#c9cbff', '#ff9f7f', '#fb5607']}
             />
           </Grid>
@@ -197,8 +197,8 @@ const GoalsPage = () => {
             <GradientGauge 
               value={40} 
               maxValue={100} 
-              title=" Research, Measurement & Evaluation, Ph.D." 
-              subtitle="Enrollement Target"
+              title="Research, Measurement & Evaluation, Ph.D." 
+              subtitle="Enrollment Target"
               colors={['#9966ff', '#c9cbff', '#ff9f7f', '#fb5607']}
             />
           </Grid>
@@ -208,7 +208,7 @@ const GoalsPage = () => {
               value={40} 
               maxValue={100} 
               title="Exercise Physiology, Ph.D." 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#9966ff', '#c9cbff', '#ff9f7f', '#fb5607']}
             />
           </Grid>
@@ -218,7 +218,7 @@ const GoalsPage = () => {
               value={40} 
               maxValue={100} 
               title="Teaching and Learning, Ph.D." 
-              subtitle="Enrollement Target"
+              subtitle="Enrollment Target"
               colors={['#9966ff', '#c9cbff', '#ff9f7f', '#fb5607']}
             />
           </Grid>
