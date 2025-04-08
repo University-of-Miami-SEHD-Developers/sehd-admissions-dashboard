@@ -31,12 +31,19 @@ const AnalysisPage = () => {
           <Tab label="Doctoral" {...a11yProps(2)} />
         </Tabs>
       </Box>
+      
       <TabPanel value={tabValue} index={0} style={{ width: '100%' }}>
-        <AnalysisCards programTab="Bachelor's" />
+        {/* Line Chart at the top with full width */}
+        <Box sx={{ width: '100%', mb: 3 }}>
+          <LineChartComponent title="Bachelor's Performance" />
+        </Box>
+        
         <Divider sx={{ my: 3 }} />
+        
+        {/* Analysis Cards and Donut Chart below */}
         <Grid container spacing={3}>
           <Grid item xs={12} md={8}>
-            <LineChartComponent title="Bachelor's Performance" />
+            <AnalysisCards programTab="Bachelors" />
           </Grid>
           <Grid item xs={12} md={4}>
             <DonutChart 
@@ -47,12 +54,19 @@ const AnalysisPage = () => {
           </Grid>
         </Grid>
       </TabPanel>
+      
       <TabPanel value={tabValue} index={1} style={{ width: '100%' }}>
-        <AnalysisCards programTab="Master's" />
+        {/* Line Chart at the top with full width */}
+        <Box sx={{ width: '100%', mb: 3 }}>
+          <LineChartComponent title="Master's Performance" />
+        </Box>
+        
         <Divider sx={{ my: 3 }} />
+        
+        {/* Analysis Cards and Donut Chart below */}
         <Grid container spacing={3}>
           <Grid item xs={12} md={8}>
-            <LineChartComponent title="Master's Performance" />
+            <AnalysisCards programTab="Masters" />
           </Grid>
           <Grid item xs={12} md={4}>
             <DonutChart 
@@ -63,12 +77,19 @@ const AnalysisPage = () => {
           </Grid>
         </Grid>
       </TabPanel>
+      
       <TabPanel value={tabValue} index={2} style={{ width: '100%' }}>
-        <AnalysisCards programTab="Doctoral" />
+        {/* Line Chart at the top with full width */}
+        <Box sx={{ width: '100%', mb: 3 }}>
+          <LineChartComponent title="Doctoral Performance" />
+        </Box>
+        
         <Divider sx={{ my: 3 }} />
+        
+        {/* Analysis Cards and Donut Chart below */}
         <Grid container spacing={3}>
           <Grid item xs={12} md={8}>
-            <LineChartComponent title="Doctoral Performance" />
+            <AnalysisCards programTab="Doctoral" />
           </Grid>
           <Grid item xs={12} md={4}>
             <DonutChart 

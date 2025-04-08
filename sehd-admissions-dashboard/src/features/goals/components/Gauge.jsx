@@ -102,6 +102,7 @@ const GradientGauge = ({
 
   return (
     <Card 
+      variant='outlined'
       elevation={1} 
       sx={{ 
         width, 

@@ -16,7 +16,10 @@ const LineChartComponent = ({ title = 'Data Trends Over Time' }) => {
       legend: {
         position: 'top',
         labels: {
-          color: theme.palette.text.primary
+          color: theme.palette.text.primary,
+          font: {
+            size: 12
+          }
         }
       },
       tooltip: {
@@ -45,6 +48,8 @@ const LineChartComponent = ({ title = 'Data Trends Over Time' }) => {
         },
         ticks: {
           color: theme.palette.text.secondary,
+          maxRotation: 45,
+          minRotation: 45
         }
       }
     },
@@ -79,16 +84,29 @@ const LineChartComponent = ({ title = 'Data Trends Over Time' }) => {
     };
   }, [theme.palette.mode]); // Re-render chart when theme mode changes
 
+  // Add window resize event listener to make chart responsive
+  useEffect(() => {
+    const handleResize = () => {
+      if (chartInstance.current) {
+        chartInstance.current.resize();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <Box
       sx={{
-        p: 3,
+        p: { xs: 2, md: 3 },
         bgcolor: theme.palette.background.paper,
         borderRadius: 2,
         boxShadow: 3,
         width: '100%',
-        maxWidth: 800,
-        height: 400,
+        height: { xs: 300, sm: 350, md: 400 },
         mx: 'auto',
         mb: 4
       }}
@@ -96,7 +114,11 @@ const LineChartComponent = ({ title = 'Data Trends Over Time' }) => {
       <Typography variant="h6" component="h2" gutterBottom>
         {title}
       </Typography>
-      <Box sx={{ height: 'calc(100% - 40px)', position: 'relative' }}>
+      <Box sx={{ 
+        height: 'calc(100% - 40px)', 
+        width: '100%', 
+        position: 'relative'
+      }}>
         <canvas ref={chartRef} />
       </Box>
     </Box>

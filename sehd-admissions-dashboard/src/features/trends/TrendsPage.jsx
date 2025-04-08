@@ -34,6 +34,37 @@ const TrendsPage = () => {
     setDoctoralDept(event.target.value);
   };
 
+  // Configure a fixed card size in pixels for consistency
+  const cardStyle = {
+    minWidth: 275,
+    height: 250, // Set a fixed height
+    margin: 1
+  };
+
+  // Function to render the grid of cards with fixed sizes
+  const renderStatCards = (deptData) => {
+    return (
+      <Box sx={{ 
+        display: 'flex', 
+        flexWrap: 'wrap', 
+        gap: 3,
+        justifyContent: { xs: 'center', md: 'flex-start' } 
+      }}>
+        {deptData.map((stat, index) => (
+          <Box key={index} sx={{ width: 275, height: 250 }}>
+            <StatCard
+              title={stat.title}
+              value={stat.value}
+              interval={stat.interval}
+              trend={stat.trend}
+              data={stat.data}
+            />
+          </Box>
+        ))}
+      </Box>
+    );
+  };
+
   return (
     <Box sx={{ flexGrow: 1, p: 3 }}>
       <Typography variant="h4" component="h1" gutterBottom>
@@ -72,19 +103,7 @@ const TrendsPage = () => {
               </Select>
             </FormControl>
           </Box>
-          <Grid container spacing={3}>
-            {programData.bachelor[bachelorDept].map((stat, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
-                <StatCard
-                  title={stat.title}
-                  value={stat.value}
-                  interval={stat.interval}
-                  trend={stat.trend}
-                  data={stat.data}
-                />
-              </Grid>
-            ))}
-          </Grid>
+          {renderStatCards(programData.bachelor[bachelorDept])}
         </TabPanel>
         
         <TabPanel value={tabValue} index={1}>
@@ -105,19 +124,7 @@ const TrendsPage = () => {
               </Select>
             </FormControl>
           </Box>
-          <Grid container spacing={3}>
-            {programData.master[masterDept].map((stat, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
-                <StatCard
-                  title={stat.title}
-                  value={stat.value}
-                  interval={stat.interval}
-                  trend={stat.trend}
-                  data={stat.data}
-                />
-              </Grid>
-            ))}
-          </Grid>
+          {renderStatCards(programData.master[masterDept])}
         </TabPanel>
         
         <TabPanel value={tabValue} index={2}>
@@ -138,19 +145,7 @@ const TrendsPage = () => {
               </Select>
             </FormControl>
           </Box>
-          <Grid container spacing={3}>
-            {programData.doctoral[doctoralDept].map((stat, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
-                <StatCard
-                  title={stat.title}
-                  value={stat.value}
-                  interval={stat.interval}
-                  trend={stat.trend}
-                  data={stat.data}
-                />
-              </Grid>
-            ))}
-          </Grid>
+          {renderStatCards(programData.doctoral[doctoralDept])}
         </TabPanel>
       </Box>
     </Box>
