@@ -90,7 +90,7 @@ const Dashboard = () => {
     <ReactRouterAppProvider
       theme={Theme}
       branding={{
-        logo: <img src="/src/assets/UM.png" alt="UM logo" />,
+        logo: <img src={process.env.PUBLIC_URL + "/assets/UM.png"} alt="UM logo" />,
         title: 'SEHD Dashboard',
         homeUrl: '/dashboard',
         // Custom styles for the title with dynamic color based on mode

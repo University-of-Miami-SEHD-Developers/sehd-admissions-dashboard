@@ -45,7 +45,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-form-wrapper">
         <div className="login-logo">
-          <img src="\src\assets\sebastian-ibis.jpg" alt="University of Miami Logo" />
+          <img src={process.env.PUBLIC_URL + "/assets/sebastian-ibis.jpg"} alt="University of Miami Logo" />
         </div>
         <h1 class="miami-style">SEHD Dashboard</h1>
         <form className="login-form" onSubmit={handleSubmit}>
