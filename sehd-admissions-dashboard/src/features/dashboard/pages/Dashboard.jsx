@@ -20,7 +20,32 @@ const Theme = createTheme({
   cssVariables: {
     colorSchemeSelector: 'data-toolpad-color-scheme',
   },
-  colorSchemes: { light: true, dark: true },
+  colorSchemes: { 
+    light: {
+      palette: {
+        primary: {
+          main: '#005030', // Miami green for light mode
+        },
+        secondary: {
+          main: '#f47321', // Miami orange for light mode
+        },
+        brandTitle: '#005030', // Title color in light mode (green)
+        themeToggle: '#005030', // Theme toggle color in light mode (green)
+      },
+    }, 
+    dark: {
+      palette: {
+        primary: {
+          main: '#f47321', // Miami orange for dark mode
+        },
+        secondary: {
+          main: '#005030', // Miami green for dark mode
+        },
+        brandTitle: '#f47321', // Title color in dark mode (orange)
+        themeToggle: '#f47321', // Theme toggle color in dark mode (orange)
+      },
+    }
+  },
   breakpoints: {
     values: {
       xs: 0,
@@ -33,13 +58,57 @@ const Theme = createTheme({
 });
 
 const Dashboard = () => {
+  // Use a React hook to detect the current color mode
+  const [mode, setMode] = React.useState('light');
+
+  // Effect to detect dark mode changes
+  React.useEffect(() => {
+    const handleColorSchemeChange = () => {
+      const isDarkMode = document.documentElement.getAttribute('data-toolpad-color-scheme') === 'dark';
+      setMode(isDarkMode ? 'dark' : 'light');
+    };
+
+    // Initial check
+    handleColorSchemeChange();
+
+    // Create an observer to watch for attribute changes on the document element
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'data-toolpad-color-scheme') {
+          handleColorSchemeChange();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+
+    // Cleanup
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <ReactRouterAppProvider
       theme={Theme}
       branding={{
         logo: <img src="/src/assets/UM.png" alt="UM logo" />,
         title: 'SEHD Dashboard',
-        homeUrl: '/dashboard'
+        homeUrl: '/dashboard',
+        // Custom styles for the title with dynamic color based on mode
+        titleStyle: { 
+          color: mode === 'dark' ? '#f47321' : '#005030', // Orange in dark mode, Green in light mode
+          fontWeight: 'bold' 
+        },
+        // Theme toggle button props with dynamic color based on mode
+        themeToggleProps: {
+          sx: { 
+            color: mode === 'dark' ? '#f47321' : '#005030', // Orange in dark mode, Green in light mode
+            '&:hover': {
+              bgcolor: mode === 'dark' 
+                ? 'rgba(244, 115, 33, 0.08)' // Light orange hover in dark mode
+                : 'rgba(0, 80, 48, 0.08)'    // Light green hover in light mode
+            }
+          }
+        }
       }}
       navigation={[
         {
