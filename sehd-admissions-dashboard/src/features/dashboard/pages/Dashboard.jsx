@@ -91,7 +91,7 @@ const Dashboard = () => {
       theme={Theme}
       branding={{
         logo: <img src={"/UM.png"} alt="UM logo" />,
-        title: 'SEHD Dashboard',
+        title: 'SEHD Datahub',
         homeUrl: '/dashboard',
         // Custom styles for the title with dynamic color based on mode
         titleStyle: { 
@@ -135,12 +135,12 @@ const Dashboard = () => {
               title: 'Analysis',
               icon: <AnalyticsIcon/>
             },
+            {
+              segment: 'data',
+              title: 'Data',
+              icon: <DatasetIcon />,
+            },
           ],
-        },
-        {
-          segment: 'data',
-          title: 'Data',
-          icon: <DatasetIcon />,
         },
         {
           kind: 'divider'

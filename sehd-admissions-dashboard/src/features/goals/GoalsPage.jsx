@@ -52,8 +52,8 @@ const GoalsPage = () => {
           aria-label="degree level tabs"
           centered
         >
-          <Tab label="Bachelors" {...a11yProps(0)} />
-          <Tab label="Masters" {...a11yProps(1)} />
+          <Tab label="Bachelor's" {...a11yProps(0)} />
+          <Tab label="Master's" {...a11yProps(1)} />
           <Tab label="Doctoral" {...a11yProps(2)} />
         </Tabs>
       </Box>

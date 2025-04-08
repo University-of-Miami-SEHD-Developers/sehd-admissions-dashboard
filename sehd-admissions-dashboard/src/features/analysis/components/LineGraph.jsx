@@ -1,9 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import Chart from 'chart.js/auto';
-import graphData from '../data/GraphData'; // Import your data here
 
-const LineChartComponent = ({ title = 'Data Trends Over Time' }) => {
+// Modified to accept data as a prop instead of importing it
+const LineChartComponent = ({ 
+  title = 'Data Trends Over Time',
+  data // Now accepting data as a prop
+}) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const theme = useTheme();
@@ -66,12 +69,12 @@ const LineChartComponent = ({ title = 'Data Trends Over Time' }) => {
       chartInstance.current.destroy();
     }
 
-    // Create new chart
-    if (chartRef.current) {
+    // Create new chart using the data prop
+    if (chartRef.current && data) {
       const ctx = chartRef.current.getContext('2d');
       chartInstance.current = new Chart(ctx, {
         type: 'line',
-        data: graphData,
+        data: data,
         options: options
       });
     }
@@ -82,7 +85,7 @@ const LineChartComponent = ({ title = 'Data Trends Over Time' }) => {
         chartInstance.current.destroy();
       }
     };
-  }, [theme.palette.mode]); // Re-render chart when theme mode changes
+  }, [data, theme.palette.mode]); // Re-render chart when data or theme changes
 
   // Add window resize event listener to make chart responsive
   useEffect(() => {

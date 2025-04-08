@@ -1,0 +1,41 @@
+
+
+KIN Bachelors:
+[Summer 23: 9, Fall 23: 104, Spring 24: 21, Summer 24: 6, Fall 24: 112]
+[9, 104, 21, 6, 112]
+
+EPS Bachelors:
+[Summer 23: 0, Fall 23: 11, Spring 24: 7, Summer 24: 1, Fall 24: 23]
+[0, 11, 7, 1, 23]
+
+TAL Bachelors:
+[Summer 23: 0, Fall 23: 11, Spring 24: 1, Summer 24: 1, Fall 24: 17]
+[0, 11, 1, 1, 17]
+
+-------------------------------------------------------------------------
+
+KIN Masters:
+[Summer 23: 27, Fall 23: 97, Spring 24: 27, Summer 24: 41, Fall 24: 76]
+[27, 97, 27, 41, 76]
+
+EPS Masters:
+[Summer 23: 13, Fall 23: 42, Spring 24: 13, Summer 24: 7, Fall 24: 70]
+[13, 42, 13, 7, 70]
+
+TAL Masters:
+[Summer 23: 1, Fall 23: 13, Spring 24: 0, Summer 24: 1, Fall 24: 9]
+[1, 13, 0, 1, 9]
+
+-------------------------------------------------------------------------
+
+KIN Doctoral:
+[Summer 23: 0, Fall 23: 5, Spring 24: 0, Summer 24: 0, Fall 24: 3]
+[0, 5, 0, 0, 3]
+
+EPS Doctoral:
+[Summer 23: 0, Fall 23: 20, Spring 24: 7, Summer 24: 1, Fall 24: 24]
+[0, 20, 7, 1, 24]
+
+TAL Doctoral:
+[Summer 23: 34, Fall 23: 66, Spring 24: 32, Summer 24: 34, Fall 24: 83]
+[34, 66, 32, 34, 83]

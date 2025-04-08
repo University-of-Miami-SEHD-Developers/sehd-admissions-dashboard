@@ -8,7 +8,9 @@ import LineChartComponent from './components/LineGraph';
 import DonutChart from './components/DonutChart';
 import AnalysisCards from './components/AnalysisCards';
 import Divider from '@mui/material/Divider';
-import {bachelorsData, mastersData, doctoralData} from './data/DonutData';
+import { bachelorsData, mastersData, doctoralData } from './data/DonutData';
+// Import the updated GraphData with three different datasets
+import graphData from './data/GraphData';
 
 const AnalysisPage = () => {
   const [tabValue, setTabValue] = React.useState(0);
@@ -33,9 +35,12 @@ const AnalysisPage = () => {
       </Box>
       
       <TabPanel value={tabValue} index={0} style={{ width: '100%' }}>
-        {/* Line Chart at the top with full width */}
+        {/* Line Chart with bachelorsData */}
         <Box sx={{ width: '100%', mb: 3 }}>
-          <LineChartComponent title="Bachelor's Performance" />
+          <LineChartComponent 
+            title="Bachelor's Program Enrollments" 
+            data={graphData.bachelorsData} 
+          />
         </Box>
         
         <Divider sx={{ my: 3 }} />
@@ -56,9 +61,12 @@ const AnalysisPage = () => {
       </TabPanel>
       
       <TabPanel value={tabValue} index={1} style={{ width: '100%' }}>
-        {/* Line Chart at the top with full width */}
+        {/* Line Chart with mastersData */}
         <Box sx={{ width: '100%', mb: 3 }}>
-          <LineChartComponent title="Master's Performance" />
+          <LineChartComponent 
+            title="Master's Program Enrollments" 
+            data={graphData.mastersData} 
+          />
         </Box>
         
         <Divider sx={{ my: 3 }} />
@@ -79,9 +87,12 @@ const AnalysisPage = () => {
       </TabPanel>
       
       <TabPanel value={tabValue} index={2} style={{ width: '100%' }}>
-        {/* Line Chart at the top with full width */}
+        {/* Line Chart with doctoralData */}
         <Box sx={{ width: '100%', mb: 3 }}>
-          <LineChartComponent title="Doctoral Performance" />
+          <LineChartComponent 
+            title="Doctoral Program Enrollments" 
+            data={graphData.doctoralData} 
+          />
         </Box>
         
         <Divider sx={{ my: 3 }} />

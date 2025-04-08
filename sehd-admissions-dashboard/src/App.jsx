@@ -18,7 +18,7 @@ const App = () => {
           {/* Protected routes - Dashboard and its nested routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/dashboard/*" element={<Dashboard />} />
-            <Route path="/data" element={<Navigate to="/dashboard/data" replace />} />
+            {/*<Route path="/data" element={<Navigate to="/dashboard/data" replace />} />*/}
           </Route>
           
           {/* Redirect to login by default */}
