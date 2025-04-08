@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import { Routes, Route } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { createTheme } from '@mui/material/styles';
@@ -8,15 +8,15 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import SsidChartIcon from '@mui/icons-material/SsidChart';
 import SchoolIcon from '@mui/icons-material/School';
-import { AppProvider } from '@toolpad/core/AppProvider';
+import { ReactRouterAppProvider } from '@toolpad/core/react-router';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
-import { useDemoRouter } from '@toolpad/core/internal';
 import TrendsPage from '../../trends/TrendsPage';
 import AdmissionsDataPage from '../../admissions/AdmissionsDataPage';
 import GoalsPage from '../../goals/GoalsPage';
 import AnalysisPage from '../../analysis/AnalysisPage';
+import HomePage from './HomePage';
 
-const demoTheme = createTheme({
+const Theme = createTheme({
   cssVariables: {
     colorSchemeSelector: 'data-toolpad-color-scheme',
   },
@@ -32,47 +32,14 @@ const demoTheme = createTheme({
   },
 });
 
-function DemoPageContent({ pathname }) {
+const Dashboard = () => {
   return (
-    <Box
-      sx={{
-        py: 4,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
-        width: '100%'
-      }}
-    >
-      {pathname === '/data' ? (
-        <AdmissionsDataPage />
-      ) : pathname === '/dashboards/trends' ? (
-        <TrendsPage />
-      ) : pathname === '/dashboards/analysis' ? (
-        <AnalysisPage/>
-      ) : pathname === '/dashboards/goals' ? (
-        <GoalsPage />
-      ): (
-        <Typography>Other content for {pathname}</Typography>
-      )}
-    </Box>
-  );
-}
-
-DemoPageContent.propTypes = {
-  pathname: PropTypes.string.isRequired,
-};
-
-const Dashboard = (props) => {
-  const { window } = props;
-  const router = useDemoRouter('/dashboard');
-
-  return (
-    <AppProvider 
+    <ReactRouterAppProvider
+      theme={Theme}
       branding={{
         logo: <img src="/src/assets/UM.png" alt="UM logo" />,
         title: 'SEHD Dashboard',
-        homeUrl: '/home',
+        homeUrl: '/dashboard'
       }}
       navigation={[
         {
@@ -80,8 +47,8 @@ const Dashboard = (props) => {
           title: 'SEHD Admissions',
         },
         {
-          segment: 'dashboards',
-          title: 'Dashboards',
+          segment: 'dashboard',
+          title: 'Dashboard',
           icon: <DashboardIcon />,
           children: [
             {
@@ -121,13 +88,29 @@ const Dashboard = (props) => {
           title: 'Marketing Campaign'
         },
       ]}
-      router={router}
-      theme={demoTheme}
     >
       <DashboardLayout>
-        <DemoPageContent pathname={router.pathname} />
+        <Box
+          sx={{
+            py: 4,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
+            width: '100%'
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/goals" element={<GoalsPage />} />
+            <Route path="/trends" element={<TrendsPage />} />
+            <Route path="/analysis" element={<AnalysisPage />} />
+            <Route path="/data" element={<AdmissionsDataPage />} />
+            <Route path="*" element={<Typography>Page not found</Typography>} />
+          </Routes>
+        </Box>
       </DashboardLayout>
-    </AppProvider>
+    </ReactRouterAppProvider>
   );
 };
 
