@@ -1,80 +1,38 @@
 # SEHD Admissions Dashboard
 
-A comprehensive dashboard application for the School of Education and Human Development (SEHD) to monitor and analyze admissions data across multiple academic terms.
+A comprehensive dashboard for monitoring admissions metrics, analyzing enrollment trends, and tracking program performance for the School of Education and Human Development at the University of Miami.
 
+![Dashboard Preview](./public/dashboard-preview.png)
 
+## 📚 Overview
 
-## Overview
+The SEHD Admissions Dashboard is a React-based application that provides administrators and staff with real-time insights into admissions and enrollment data. The dashboard features four main sections:
 
-The SEHD Admissions Dashboard is a React-based web application that provides administrators and staff with real-time insights into admission trends, enrollment metrics, and program performance. The application features secure authentication, interactive data visualizations, and detailed data views across multiple academic terms.
+1. **Enrollment Goals** - Track progress against program enrollment targets
+2. **Enrollment Trends** - View historical enrollment data and trends
+3. **Program Analysis** - Analyze program performance and distribution
+4. **Admissions Data** - Explore detailed admissions data by term
 
-## Features
+## 🔧 Features
 
-- **Secure Authentication**: Login system with role-based access control (admin/staff)
-- **Interactive Data Visualizations**:
-  - Statistical cards with key performance metrics
-  - Line charts for trend analysis
-  - Doughnut charts for program distribution
-  - Gradient gauges for goal tracking
-- **Comprehensive Data Views**:
-  - Tabbed interface for accessing data by term (Spring, Summer, Fall)
-  - Detailed data grids with filtering and sorting capabilities
-  - Admissions statistics by program and academic career
-- **Responsive Design**: Fully responsive layout that works on desktop, tablet, and mobile devices
+- **Secure Authentication** - Role-based access control for admin and staff users
+- **Interactive Data Visualization** - Charts, gauges, and data grids for intuitive data exploration
+- **Departmental Filtering** - Filter data by department (KIN, EPS, TAL)
+- **Multi-level Analysis** - View data across Bachelor's, Master's, and Doctoral programs
+- **Responsive Design** - Optimized for both desktop and mobile devices
 
-## Project Structure
-
-```
-sehd-admissions-dashboard/
-├── public/                  # Static files
-├── src/
-│   ├── assets/              # Images and icons
-│   ├── components/
-│   │   ├── auth/            # Authentication components
-│   │   ├── grid/            # Data grid components
-│   │   ├── layouts/         # Layout components
-│   │   ├── visualizations/  # Visualization components
-│   ├── context/             # React context providers
-│   ├── data/                # Mock data files by term
-│   ├── pages/               # Page components
-│   ├── services/            # API and authentication services
-│   ├── styles/              # CSS stylesheets
-│   ├── utils/               # Utility functions
-│   ├── App.jsx              # Main application component
-│   ├── main.jsx             # Application entry point
-├── index.html               # HTML template
-├── package.json             # Dependencies and scripts
-├── README.md                # Project documentation
-```
-
-## Technology Stack
-
-- **Frontend Framework**: React with Vite
-- **UI Libraries**: 
-  - Material-UI (MUI) for components
-  - Chart.js for data visualizations
-  - Recharts for advanced charts
-  - MUI X DataGrid for table displays
-- **State Management**:
-  - React Context API
-  - React Hooks
-- **Routing**:
-  - React Router for navigation
-- **Authentication**:
-  - Context-based authentication
-
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js (v14.x or higher)
-- npm (v7.x or higher)
+- Node.js (v14.0.0 or higher)
+- npm (v6.0.0 or higher)
 
 ### Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-organization/sehd-admissions-dashboard.git
+   git clone https://github.com/yourusername/sehd-admissions-dashboard.git
    cd sehd-admissions-dashboard
    ```
 
@@ -88,11 +46,14 @@ sehd-admissions-dashboard/
    npm run dev
    ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+4. Open your browser and navigate to:
+   ```
+   http://localhost:5173
+   ```
 
-### Login Credentials
+### Demo Login Credentials
 
-For demonstration purposes, the following mock accounts are available:
+For testing purposes, use these credentials:
 
 - **Admin User**:
   - Email: admin@miami.edu
@@ -102,65 +63,62 @@ For demonstration purposes, the following mock accounts are available:
   - Email: staff@miami.edu
   - Password: staff123
 
-## Application Sections
+## 🛠️ Technology Stack
 
-### Dashboards
+- **Frontend Framework**: React with Vite
+- **UI Library**: Material-UI (MUI)
+- **Routing**: React Router v6
+- **State Management**: React Context API
+- **Data Visualization**: Chart.js, Recharts
+- **Data Grid**: MUI X-Data-Grid
+- **Authentication**: Custom JWT implementation (mock service)
 
-1. **Goals**
-   - Performance metrics displays using gauge visualizations
-   - Tracks KPIs like admission rates, enrollment targets, and budget utilization
+## 📁 Project Structure
 
-2. **Trends**
-   - Statistical cards showing key metrics
-   - Program enrollment breakdowns
-   - Year-over-year comparison charts
+```
+sehd-admissions-dashboard/
+├── public/                  # Static files
+├── src/
+│   ├── assets/              # Images, fonts, etc.
+│   ├── features/            # Feature-based modules
+│   │   ├── admissions/      # Admissions data feature
+│   │   ├── analysis/        # Program analysis feature
+│   │   ├── auth/            # Authentication feature
+│   │   ├── dashboard/       # Dashboard layout and navigation
+│   │   ├── goals/           # Enrollment goals feature
+│   │   └── trends/          # Enrollment trends feature
+│   ├── shared/              # Shared components
+│   │   ├── components/      # Reusable UI components
+│   │   └── utils/           # Utility functions
+│   ├── styles/              # Global CSS files
+│   ├── App.jsx              # Main application component
+│   ├── App.css              # App-specific styles
+│   ├── main.jsx             # Entry point
+│   └── index.css            # Global styles
+├── .eslintrc.cjs            # ESLint configuration
+├── .gitignore               # Git ignore file
+├── package.json             # Project dependencies
+├── README.md                # Project documentation
+└── vite.config.js           # Vite configuration
+```
 
-3. **Analysis**
-   - Detailed analysis by department (TAL, KIN, EPS)
-   - Program distribution charts
-   - Performance line charts
+## 📊 Data Sources
 
-### Data
+The dashboard currently uses mock data for demonstration purposes. In a production environment, this would connect to:
 
-- Tabbed interface for viewing admissions data by term
-- Interactive data grid with sorting, filtering, and pagination
-- Comprehensive metrics including applied, admitted, denied, and deposited students
+- Student Information System APIs
+- CRM systems (for applicant data)
+- Data warehouse or analytics platform
 
-## Customization
+## 🛣️ Roadmap
 
-### Theme
+- [ ] Add data export functionality
+- [ ] Implement year-over-year comparison views
+- [ ] Integrate with actual University of Miami data sources
+- [ ] Add user management functionality
+- [ ] Create custom reporting features
 
-The application uses MUI's theming system with University of Miami brand colors:
-- Primary Green: #005030
-- Primary Orange: #f47321
-- Light Gray: #e6e6e6
-- Dark Gray: #4a4a4a
-
-These can be modified in `src/styles/global.css`.
-
-### Data Sources
-
-Currently, the application uses mock data stored in the `src/data/` directory. In a production environment, these would be replaced with API calls to your backend services.
-
-## Deployment
-
-1. Build the production version:
-   ```bash
-   npm run build
-   ```
-
-2. The build artifacts will be stored in the `dist/` folder, ready to be deployed to your web server or hosting platform of choice.
-
-## Future Enhancements
-
-- Integration with real backend API
-- Export functionality for reports (PDF, Excel)
-- Advanced filtering and search capabilities
-- User management interface for administrators
-- Customizable dashboard layouts
-- Email notification system for important metrics
-
-## Contributing
+## 💼 Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
@@ -168,12 +126,10 @@ Currently, the application uses mock data stored in the `src/data/` directory. I
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Acknowledgments
+## 📧 Contact
 
-- University of Miami School of Education & Human Development
-- Material-UI Team for the component library
-- Chart.js and Recharts for the visualization libraries
+For questions or support, please contact the project team at `sehd-dashboard@miami.edu`.
