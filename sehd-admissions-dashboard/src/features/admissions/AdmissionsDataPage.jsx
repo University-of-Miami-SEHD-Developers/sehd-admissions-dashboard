@@ -13,15 +13,15 @@ import TabPanel, { a11yProps } from '../../shared/components/TabPanel';
 import AdmissionsSummary from './components/AdmissionsSummary';
 
 // Import all the JSON data
-import Spring24Data from './data/Spring24.json';
-import Summer24Data from './data/Summer24.json';
-import Fall24Data from './data/Fall24.json';
-import Spring23Data from './data/Spring23.json';
-import Summer23Data from './data/Summer23.json';
-import Fall23Data from './data/Fall23.json';
-import Spring22Data from './data/Spring22.json';
-import Summer22Data from './data/Summer22.json';
-import Fall22Data from './data/Fall22.json';
+import Spring24Data from '../../shared/data/Spring24.json';
+import Summer24Data from '../../shared/data/Summer24.json';
+import Fall24Data from '../../shared/data/Fall24.json';
+import Spring23Data from '../../shared/data/Spring23.json';
+import Summer23Data from '../../shared/data/Summer23.json';
+import Fall23Data from '../../shared/data/Fall23.json';
+import Spring22Data from '../../shared/data/Spring22.json';
+import Summer22Data from '../../shared/data/Summer22.json';
+import Fall22Data from '../../shared/data/Fall22.json';
 
 // Define columns for the DataGrid
 const columns = [
