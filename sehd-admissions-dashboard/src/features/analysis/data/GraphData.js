@@ -1,6 +1,6 @@
 // Sample data - replace with your actual data
 const bachelorsData = {
-    labels: ['Spring \'22', 'Summer \'22', 'Fall \'22', 'Spring \'23', 'Summer \'23', 'Fall \'23', 'Spring \'24', 'Fall \'24', 'Spring \'25'],
+    labels: ['Spring \'22', 'Summer \'22', 'Fall \'22', 'Spring \'23', 'Summer \'23', 'Fall \'23', 'Spring \'24', 'Summer \'24', 'Fall \'24'],
     datasets: [
       {
         label: 'KIN',
@@ -27,7 +27,7 @@ const bachelorsData = {
   };
 
   const mastersData = {
-    labels: ['Spring \'22', 'Summer \'22', 'Fall \'22', 'Spring \'23', 'Summer \'23', 'Fall \'23', 'Spring \'24', 'Fall \'24', 'Spring \'25'],
+    labels: ['Spring \'22', 'Summer \'22', 'Fall \'22', 'Spring \'23', 'Summer \'23', 'Fall \'23', 'Spring \'24', 'Summer \'24', 'Fall \'24'],
     datasets: [
       {
         label: 'KIN',
@@ -54,7 +54,7 @@ const bachelorsData = {
   };
 
   const doctoralData = {
-    labels: ['Spring \'22', 'Summer \'22', 'Fall \'22', 'Spring \'23', 'Summer \'23', 'Fall \'23', 'Spring \'24', 'Fall \'24', 'Spring \'25'],
+    labels: ['Spring \'22', 'Summer \'22', 'Fall \'22', 'Spring \'23', 'Summer \'23', 'Fall \'23', 'Spring \'24', 'Summer \'24', 'Fall \'24'],
     datasets: [
       {
         label: 'KIN',

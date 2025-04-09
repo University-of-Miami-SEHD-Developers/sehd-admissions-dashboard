@@ -8,12 +8,29 @@ import LineChartComponent from './components/LineGraph';
 import DonutChart from './components/DonutChart';
 import AnalysisCards from './components/AnalysisCards';
 import Divider from '@mui/material/Divider';
-import { bachelorsData, mastersData, doctoralData } from './data/DonutData';
-// Import the updated GraphData with three different datasets
+
+// Import GraphData with three different datasets
 import graphData from './data/GraphData';
+
+// Import utility functions for getting distribution data
+import { programTypes, getProgramDistribution } from '../../shared/utils/dataUtils';
 
 const AnalysisPage = () => {
   const [tabValue, setTabValue] = React.useState(0);
+  const [donutData, setDonutData] = React.useState({
+    bachelors: null,
+    masters: null,
+    doctoral: null
+  });
+
+  React.useEffect(() => {
+    // Generate real distribution data from JSON files
+    setDonutData({
+      bachelors: getProgramDistribution(programTypes['Bachelors']),
+      masters: getProgramDistribution(programTypes['Masters']),
+      doctoral: getProgramDistribution(programTypes['Doctoral'])
+    });
+  }, []);
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
@@ -52,8 +69,8 @@ const AnalysisPage = () => {
           </Grid>
           <Grid item xs={12} md={4}>
             <DonutChart 
-              title="Distribution of Bachelor's Programs" 
-              data={bachelorsData}
+              title="Distribution of Bachelor's Programs by Department" 
+              data={donutData.bachelors}
               height={300}
             />
           </Grid>
@@ -78,8 +95,8 @@ const AnalysisPage = () => {
           </Grid>
           <Grid item xs={12} md={4}>
             <DonutChart 
-              title="Distribution of Master's Programs" 
-              data={mastersData}
+              title="Distribution of Master's Programs by Department" 
+              data={donutData.masters}
               height={300}
             />
           </Grid>
@@ -104,8 +121,8 @@ const AnalysisPage = () => {
           </Grid>
           <Grid item xs={12} md={4}>
             <DonutChart 
-              title="Distribution of Doctoral Programs" 
-              data={doctoralData}
+              title="Distribution of Doctoral Programs by Department" 
+              data={donutData.doctoral}
               height={300}
             />
           </Grid>

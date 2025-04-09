@@ -8,6 +8,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { SparkLineChart } from '@mui/x-charts/SparkLineChart';
 import { areaElementClasses } from '@mui/x-charts/LineChart';
+import { createTrendData, determineTrend } from '../utils/dataUtils';
 
 function getDaysInMonth(month, year) {
   const date = new Date(year, month, 0);
@@ -35,25 +36,60 @@ function AreaGradient({ color, id }) {
   );
 }
 
-export default function StatCard({ title, value, interval, trend, data }) {
+/**
+ * StatCard component that displays a statistic with trend visualization
+ * 
+ * @param {Object} props
+ * @param {string} props.title - The title of the statistic
+ * @param {string|number} props.value - The value to display
+ * @param {string} props.interval - Time period for the statistic
+ * @param {string} props.trend - Trend direction ('up', 'down', 'neutral')
+ * @param {Array} props.data - Data points for the sparkline chart
+ * @param {number} props.change - Percentage change (optional)
+ * @param {Object} props.customColors - Custom colors for trends (optional)
+ */
+export default function StatCard({ 
+  title, 
+  value, 
+  interval, 
+  trend, 
+  data, 
+  change,
+  customColors
+}) {
   const theme = useTheme();
   const daysInWeek = getDaysInMonth(4, 2024);
 
-  const trendColors = {
+  // Use provided trend or calculate it from change if available
+  const trendDirection = trend || (change ? determineTrend(change) : 'neutral');
+
+  // Allow custom colors or use theme defaults
+  const defaultTrendColors = {
     up: theme.palette.mode === 'light' ? theme.palette.success.main : theme.palette.success.dark,
     down: theme.palette.mode === 'light' ? theme.palette.error.main : theme.palette.error.dark,
     neutral: theme.palette.mode === 'light' ? theme.palette.grey[400] : theme.palette.grey[700],
   };
 
+  const trendColors = customColors || defaultTrendColors;
+  
   const labelColors = {
     up: 'success',
     down: 'error',
     neutral: 'default',
   };
 
-  const color = labelColors[trend];
-  const chartColor = trendColors[trend];
-  const trendValues = { up: '+25%', down: '-25%', neutral: '+5%' };
+  const color = labelColors[trendDirection];
+  const chartColor = trendColors[trendDirection];
+  
+  // Format change value for display
+  const displayChange = change ? 
+    `${change > 0 ? '+' : ''}${change}%` : 
+    { up: '+25%', down: '-25%', neutral: '+5%' }[trendDirection];
+
+  // Use provided data or generate trend data
+  const chartData = data || createTrendData(typeof value === 'string' ? 
+    parseInt(value.replace(/[^0-9.-]+/g, '')) : 
+    value);
 
   return (
     <Card variant="outlined" sx={{ height: '100%', flexGrow: 1 }}>
@@ -67,7 +103,7 @@ export default function StatCard({ title, value, interval, trend, data }) {
               <Typography variant="h4" component="p">
                 {value}
               </Typography>
-              <Chip size="small" color={color} label={trendValues[trend]} />
+              <Chip size="small" color={color} label={displayChange} />
             </Stack>
             <Typography variant="caption" sx={{ color: 'text.secondary' }}>
               {interval}
@@ -76,7 +112,7 @@ export default function StatCard({ title, value, interval, trend, data }) {
           <Box sx={{ width: '100%', height: 50 }}>
             <SparkLineChart
               colors={[chartColor]}
-              data={data}
+              data={chartData}
               area
               showHighlight
               showTooltip
