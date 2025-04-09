@@ -2,75 +2,262 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import { DataGrid } from '@mui/x-data-grid';
 import TabPanel, { a11yProps } from '../../shared/components/TabPanel';
-import AdmissionsDataGrid from './components/AdmissionsDataGrid';
+import AdmissionsSummary from './components/AdmissionsSummary';
 
-// Import the data
-import { rows as spring24Rows, cols as spring24Cols } from './data/Spring24';
-import { rows as summer24Rows, cols as summer24Cols } from './data/Summer24';
-import { rows as fall24Rows, cols as fall24Cols } from './data/Fall24';
-import { rows as spring23Rows, cols as spring23Cols } from './data/Spring23';
-import { rows as summer23Rows, cols as summer23Cols } from './data/Summer23';
-import { rows as fall23Rows, cols as fall23Cols } from './data/Fall23';
-import { rows as spring22Rows, cols as spring22Cols } from './data/Spring22';
-import { rows as summer22Rows, cols as summer22Cols } from './data/Summer22';
-import { rows as fall22Rows, cols as fall22Cols } from './data/Fall22';
+// Import all the JSON data
+import Spring24Data from './data/Spring24.json';
+import Summer24Data from './data/Summer24.json';
+import Fall24Data from './data/Fall24.json';
+import Spring23Data from './data/Spring23.json';
+import Summer23Data from './data/Summer23.json';
+import Fall23Data from './data/Fall23.json';
+import Spring22Data from './data/Spring22.json';
+import Summer22Data from './data/Summer22.json';
+import Fall22Data from './data/Fall22.json';
+
+// Define columns for the DataGrid
+const columns = [
+  { field: 'id', headerName: 'ID', width: 70 },
+  { field: 'Department', headerName: 'Department', width: 130 },
+  { field: 'Program', headerName: 'Program', width: 150 },
+  { field: 'Academic Career Description', headerName: 'Academic Career', width: 150 },
+  { field: 'Academic Plan Code', headerName: 'Plan Code', width: 120 },
+  { field: 'Academic Plan Description', headerName: 'Plan Description', width: 220 },
+  { field: 'Admit Type Description', headerName: 'Admit Type', width: 150 },
+  { field: 'Total Applied', headerName: 'Applied', type: 'number', width: 100 },
+  { field: 'Total Admitted', headerName: 'Admitted', type: 'number', width: 100 },
+  { field: 'Total Denied', headerName: 'Denied', type: 'number', width: 100 },
+  { field: 'Total Gross Deposited', headerName: 'Gross Deposited', type: 'number', width: 150 },
+  { field: 'Total Net Deposited', headerName: 'Net Deposited', type: 'number', width: 150 }
+];
+
+// Row transformation function
+function transformRows(data) {
+  return data.map((row, index) => ({
+    id: index + 1,
+    ...row
+  }));
+}
+
+// Dataset mapping
+const datasets = {
+  spring24: {
+    label: 'Spring 2024',
+    data: Spring24Data
+  },
+  summer24: {
+    label: 'Summer 2024',
+    data: Summer24Data
+  },
+  fall24: {
+    label: 'Fall 2024',
+    data: Fall24Data
+  },
+  spring23: {
+    label: 'Spring 2023',
+    data: Spring23Data
+  },
+  summer23: {
+    label: 'Summer 2023',
+    data: Summer23Data
+  },
+  fall23: {
+    label: 'Fall 2023',
+    data: Fall23Data
+  },
+  spring22: {
+    label: 'Spring 2022',
+    data: Spring22Data
+  },
+  summer22: {
+    label: 'Summer 2022',
+    data: Summer22Data
+  },
+  fall22: {
+    label: 'Fall 2022',
+    data: Fall22Data
+  }
+};
+
+// Filter options
+const departmentOptions = ["All", "KIN", "EPS", "TAL", "Undeclared"];
+const programOptions = ["All", "Bachelor's", "Master's", "Doctoral", "Certificate"];
+const careerOptions = ["All", "Undergraduate", "Graduate"];
+const admitTypeOptions = ["All", "New Student", "Transfer Student"];
 
 const AdmissionsDataPage = () => {
-  const [tabValue, setTabValue] = React.useState(0);
+  // State for the dataset selection
+  const [selectedDataset, setSelectedDataset] = React.useState('spring24');
+  
+  // State for filters
+  const [department, setDepartment] = React.useState("All");
+  const [program, setProgram] = React.useState("All");
+  const [career, setCareer] = React.useState("All");
+  const [admitType, setAdmitType] = React.useState("All");
 
-  const handleTabChange = (event, newValue) => {
-    setTabValue(newValue);
+  // Handle dataset change
+  const handleDatasetChange = (event) => {
+    setSelectedDataset(event.target.value);
   };
 
+  // Handle filter changes
+  const handleDepartmentChange = (event) => {
+    setDepartment(event.target.value);
+  };
+
+  const handleProgramChange = (event) => {
+    setProgram(event.target.value);
+  };
+
+  const handleCareerChange = (event) => {
+    setCareer(event.target.value);
+  };
+
+  const handleAdmitTypeChange = (event) => {
+    setAdmitType(event.target.value);
+  };
+
+  // Get the current dataset and apply filters
+  const currentData = datasets[selectedDataset].data;
+  
+  // Apply filters
+  const filteredData = currentData.filter(item => {
+    return (
+      (department === "All" || item.Department === department) &&
+      (program === "All" || item.Program === program) &&
+      (career === "All" || item["Academic Career Description"] === career) &&
+      (admitType === "All" || item["Admit Type Description"] === admitType)
+    );
+  });
+
+  // Transform the data for DataGrid
+  const rows = transformRows(filteredData);
+
   return (
-    <>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider', width: '100%' }}>
-        <Tabs 
-          value={tabValue} 
-          onChange={handleTabChange} 
-          aria-label="admissions data tabs"
-          centered
-        >
-          <Tab label="Spring 2024" {...a11yProps(0)} />
-          <Tab label="Summer 2024" {...a11yProps(1)} />
-          <Tab label="Fall 2024" {...a11yProps(2)} />
-          <Tab label="Spring 2023" {...a11yProps(3)} />
-          <Tab label="Summer 2023" {...a11yProps(4)} />
-          <Tab label="Fall 2023" {...a11yProps(5)} />
-          <Tab label="Spring 2022" {...a11yProps(6)} />
-          <Tab label="Summer 2022" {...a11yProps(7)} />
-          <Tab label="Fall 2022" {...a11yProps(8)} />
-        </Tabs>
+    <Box sx={{ width: '100%', p: 2 }}>
+      <Typography variant="h4" component="h1" gutterBottom>
+        Admissions Data
+      </Typography>
+      
+      {/* Dataset Selection */}
+      <Box sx={{ mb: 3 }}>
+        <FormControl fullWidth>
+          <InputLabel id="dataset-select-label">Select Term</InputLabel>
+          <Select
+            labelId="dataset-select-label"
+            id="dataset-select"
+            value={selectedDataset}
+            label="Select Term"
+            onChange={handleDatasetChange}
+          >
+            {Object.entries(datasets).map(([key, { label }]) => (
+              <MenuItem key={key} value={key}>{label}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </Box>
-      <TabPanel value={tabValue} index={0} style={{ width: '100%' }}>
-        <AdmissionsDataGrid rows={spring24Rows} cols={spring24Cols} />
-      </TabPanel>
-      <TabPanel value={tabValue} index={1} style={{ width: '100%' }}>
-        <AdmissionsDataGrid rows={summer24Rows} cols={summer24Cols} />
-      </TabPanel>
-      <TabPanel value={tabValue} index={2} style={{ width: '100%' }}>
-        <AdmissionsDataGrid rows={fall24Rows} cols={fall24Cols} />
-      </TabPanel>
-      <TabPanel value={tabValue} index={3} style={{ width: '100%' }}>
-        <AdmissionsDataGrid rows={spring23Rows} cols={spring23Cols} />
-      </TabPanel>
-      <TabPanel value={tabValue} index={4} style={{ width: '100%' }}>
-        <AdmissionsDataGrid rows={summer23Rows} cols={summer23Cols} />
-      </TabPanel>
-      <TabPanel value={tabValue} index={5} style={{ width: '100%' }}>
-        <AdmissionsDataGrid rows={fall23Rows} cols={fall23Cols} />
-      </TabPanel>
-      <TabPanel value={tabValue} index={6} style={{ width: '100%' }}>
-        <AdmissionsDataGrid rows={spring22Rows} cols={spring22Cols} />
-      </TabPanel>
-      <TabPanel value={tabValue} index={7} style={{ width: '100%' }}>
-        <AdmissionsDataGrid rows={summer22Rows} cols={summer22Cols} />
-      </TabPanel>
-      <TabPanel value={tabValue} index={8} style={{ width: '100%' }}>
-        <AdmissionsDataGrid rows={fall22Rows} cols={fall22Cols} />
-      </TabPanel>
-    </>
+      
+      {/* Filters */}
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mb: 3 }}>
+        <FormControl sx={{ minWidth: 200 }}>
+          <InputLabel id="department-filter-label">Department</InputLabel>
+          <Select
+            labelId="department-filter-label"
+            id="department-filter"
+            value={department}
+            label="Department"
+            onChange={handleDepartmentChange}
+          >
+            {departmentOptions.map(option => (
+              <MenuItem key={option} value={option}>{option}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        
+        <FormControl sx={{ minWidth: 200 }}>
+          <InputLabel id="program-filter-label">Program</InputLabel>
+          <Select
+            labelId="program-filter-label"
+            id="program-filter"
+            value={program}
+            label="Program"
+            onChange={handleProgramChange}
+          >
+            {programOptions.map(option => (
+              <MenuItem key={option} value={option}>{option}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        
+        <FormControl sx={{ minWidth: 200 }}>
+          <InputLabel id="career-filter-label">Academic Career</InputLabel>
+          <Select
+            labelId="career-filter-label"
+            id="career-filter"
+            value={career}
+            label="Academic Career"
+            onChange={handleCareerChange}
+          >
+            {careerOptions.map(option => (
+              <MenuItem key={option} value={option}>{option}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        
+        <FormControl sx={{ minWidth: 200 }}>
+          <InputLabel id="admit-type-filter-label">Admit Type</InputLabel>
+          <Select
+            labelId="admit-type-filter-label"
+            id="admit-type-filter"
+            value={admitType}
+            label="Admit Type"
+            onChange={handleAdmitTypeChange}
+          >
+            {admitTypeOptions.map(option => (
+              <MenuItem key={option} value={option}>{option}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+
+      {/* Summary Cards */}
+      <AdmissionsSummary data={filteredData} />
+      
+      <Divider sx={{ my: 4 }} />
+      
+      <Typography variant="h6" gutterBottom>
+        Detailed Admissions Data
+      </Typography>
+      
+      {/* Data Grid */}
+      <Box sx={{ height: 600, width: '100%' }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          initialState={{
+            pagination: {
+              paginationModel: {
+                pageSize: 10,
+              },
+            },
+            sorting: {
+              sortModel: [{ field: 'Total Applied', sort: 'desc' }],
+            },
+          }}
+          pageSizeOptions={[10, 25, 50, 100]}
+          checkboxSelection
+          disableRowSelectionOnClick
+        />
+      </Box>
+    </Box>
   );
 };
 
