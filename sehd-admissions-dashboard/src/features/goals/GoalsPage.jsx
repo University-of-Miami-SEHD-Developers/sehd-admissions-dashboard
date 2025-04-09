@@ -84,7 +84,7 @@ const GoalsPage = () => {
                 value={program.value} 
                 maxValue={program.maxValue} 
                 title={program.title} 
-                subtitle="2025 Enrollment Target"
+                subtitle="Fall 2025 Enrollment Target"
                 colors={['#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0']}
               />
             </Grid>
@@ -118,7 +118,7 @@ const GoalsPage = () => {
                 value={(program.value)} 
                 maxValue={program.maxValue} 
                 title={program.title} 
-                subtitle="2025 Enrollment Target"
+                subtitle="Fall 2025 Enrollment Target"
                 colors={['#36a2eb', '#4bc0c0', '#4caf50', '#8bc34a']}
               />
             </Grid>
@@ -152,7 +152,7 @@ const GoalsPage = () => {
                 value={program.value} 
                 maxValue={program.maxValue} 
                 title={program.title} 
-                subtitle="2025 Enrollment Target"
+                subtitle="Fall 2025 Enrollment Target"
                 colors={['#9966ff', '#c9cbff', '#ff9f7f', '#fb5607']}
               />
             </Grid>
