@@ -10,7 +10,7 @@
       "Total Admitted": 1,
       "Total Denied": 0,
       "Total Gross Deposited": 0,
-      "Total Net Deposited": 0
+      "Matriculated": 0
     },
     {
       "Academic Career Description": "Graduate",
@@ -23,7 +23,7 @@
       "Total Admitted": 5,
       "Total Denied": 0,
       "Total Gross Deposited": 5,
-      "Total Net Deposited": 5
+      "Matriculated": 5
     },
     {
       "Academic Career Description": "Graduate",
@@ -36,7 +36,7 @@
       "Total Admitted": 0,
       "Total Denied": 0,
       "Total Gross Deposited": 0,
-      "Total Net Deposited": 0
+      "Matriculated": 0
     },
     {
       "Academic Career Description": "Graduate",
@@ -49,7 +49,7 @@
       "Total Admitted": 0,
       "Total Denied": 47,
       "Total Gross Deposited": 0,
-      "Total Net Deposited": 0
+      "Matriculated": 0
     },
     {
       "Academic Career Description": "Graduate",
@@ -62,7 +62,7 @@
       "Total Admitted": 6,
       "Total Denied": 6,
       "Total Gross Deposited": 4,
-      "Total Net Deposited": 4
+      "Matriculated": 4
     },
     {
       "Academic Career Description": "Graduate",
@@ -75,7 +75,7 @@
       "Total Admitted": 2,
       "Total Denied": 1,
       "Total Gross Deposited": 1,
-      "Total Net Deposited": 1
+      "Matriculated": 1
     },
     {
       "Academic Career Description": "Graduate",
@@ -88,7 +88,7 @@
       "Total Admitted": 7,
       "Total Denied": 0,
       "Total Gross Deposited": 5,
-      "Total Net Deposited": 5
+      "Matriculated": 5
     },
     {
       "Academic Career Description": "Graduate",
@@ -101,7 +101,7 @@
       "Total Admitted": 16,
       "Total Denied": 0,
       "Total Gross Deposited": 15,
-      "Total Net Deposited": 13
+      "Matriculated": 13
     },
     {
       "Academic Career Description": "Graduate",
@@ -114,7 +114,7 @@
       "Total Admitted": 66,
       "Total Denied": 4,
       "Total Gross Deposited": 58,
-      "Total Net Deposited": 46
+      "Matriculated": 46
     },
     {
       "Academic Career Description": "Graduate",
@@ -127,7 +127,7 @@
       "Total Admitted": 8,
       "Total Denied": 6,
       "Total Gross Deposited": 8,
-      "Total Net Deposited": 8
+      "Matriculated": 8
     },
     {
       "Academic Career Description": "Graduate",
@@ -140,7 +140,7 @@
       "Total Admitted": 0,
       "Total Denied": 1,
       "Total Gross Deposited": 0,
-      "Total Net Deposited": 0
+      "Matriculated": 0
     },
     {
       "Academic Career Description": "Graduate",
@@ -153,7 +153,7 @@
       "Total Admitted": 24,
       "Total Denied": 1,
       "Total Gross Deposited": 20,
-      "Total Net Deposited": 15
+      "Matriculated": 15
     },
     {
       "Academic Career Description": "Graduate",
@@ -166,7 +166,7 @@
       "Total Admitted": 23,
       "Total Denied": 32,
       "Total Gross Deposited": 15,
-      "Total Net Deposited": 11
+      "Matriculated": 11
     },
     {
       "Academic Career Description": "Graduate",
@@ -179,7 +179,7 @@
       "Total Admitted": 3,
       "Total Denied": 0,
       "Total Gross Deposited": 1,
-      "Total Net Deposited": 1
+      "Matriculated": 1
     },
     {
       "Academic Career Description": "Graduate",
@@ -192,7 +192,7 @@
       "Total Admitted": 16,
       "Total Denied": 3,
       "Total Gross Deposited": 9,
-      "Total Net Deposited": 7
+      "Matriculated": 7
     },
     {
       "Academic Career Description": "Graduate",
@@ -205,7 +205,7 @@
       "Total Admitted": 3,
       "Total Denied": 0,
       "Total Gross Deposited": 3,
-      "Total Net Deposited": 3
+      "Matriculated": 3
     },
     {
       "Academic Career Description": "Graduate",
@@ -218,7 +218,7 @@
       "Total Admitted": 3,
       "Total Denied": 0,
       "Total Gross Deposited": 1,
-      "Total Net Deposited": 0
+      "Matriculated": 0
     },
     {
       "Academic Career Description": "Graduate",
@@ -231,7 +231,7 @@
       "Total Admitted": 10,
       "Total Denied": 0,
       "Total Gross Deposited": 6,
-      "Total Net Deposited": 4
+      "Matriculated": 4
     },
     {
       "Academic Career Description": "Graduate",
@@ -244,7 +244,7 @@
       "Total Admitted": 0,
       "Total Denied": 1,
       "Total Gross Deposited": 0,
-      "Total Net Deposited": 0
+      "Matriculated": 0
     },
     {
       "Academic Career Description": "Graduate",
@@ -257,7 +257,7 @@
       "Total Admitted": 18,
       "Total Denied": 1,
       "Total Gross Deposited": 16,
-      "Total Net Deposited": 13
+      "Matriculated": 13
     },
     {
       "Academic Career Description": "Graduate",
@@ -270,7 +270,7 @@
       "Total Admitted": 41,
       "Total Denied": 6,
       "Total Gross Deposited": 37,
-      "Total Net Deposited": 31
+      "Matriculated": 31
     },
     {
       "Academic Career Description": "Graduate",
@@ -283,7 +283,7 @@
       "Total Admitted": 59,
       "Total Denied": 9,
       "Total Gross Deposited": 40,
-      "Total Net Deposited": 25
+      "Matriculated": 25
     },
     {
       "Academic Career Description": "Graduate",
@@ -296,7 +296,7 @@
       "Total Admitted": 5,
       "Total Denied": 0,
       "Total Gross Deposited": 4,
-      "Total Net Deposited": 2
+      "Matriculated": 2
     },
     {
       "Academic Career Description": "Undergraduate",
@@ -309,7 +309,7 @@
       "Total Admitted": 25,
       "Total Denied": 109,
       "Total Gross Deposited": 9,
-      "Total Net Deposited": 9
+      "Matriculated": 9
     },
     {
       "Academic Career Description": "Undergraduate",
@@ -322,7 +322,7 @@
       "Total Admitted": 3,
       "Total Denied": 0,
       "Total Gross Deposited": 2,
-      "Total Net Deposited": 2
+      "Matriculated": 2
     },
     {
       "Academic Career Description": "Undergraduate",
@@ -335,7 +335,7 @@
       "Total Admitted": 20,
       "Total Denied": 59,
       "Total Gross Deposited": 2,
-      "Total Net Deposited": 2
+      "Matriculated": 2
     },
     {
       "Academic Career Description": "Undergraduate",
@@ -348,7 +348,7 @@
       "Total Admitted": 2,
       "Total Denied": 0,
       "Total Gross Deposited": 1,
-      "Total Net Deposited": 1
+      "Matriculated": 1
     },
     {
       "Academic Career Description": "Undergraduate",
@@ -361,7 +361,7 @@
       "Total Admitted": 30,
       "Total Denied": 135,
       "Total Gross Deposited": 11,
-      "Total Net Deposited": 11
+      "Matriculated": 11
     },
     {
       "Academic Career Description": "Undergraduate",
@@ -374,7 +374,7 @@
       "Total Admitted": 2,
       "Total Denied": 2,
       "Total Gross Deposited": 0,
-      "Total Net Deposited": 0
+      "Matriculated": 0
     },
     {
       "Academic Career Description": "Undergraduate",
@@ -387,7 +387,7 @@
       "Total Admitted": 1,
       "Total Denied": 0,
       "Total Gross Deposited": 0,
-      "Total Net Deposited": 0
+      "Matriculated": 0
     },
     {
       "Academic Career Description": "Undergraduate",
@@ -400,7 +400,7 @@
       "Total Admitted": 105,
       "Total Denied": 163,
       "Total Gross Deposited": 41,
-      "Total Net Deposited": 39
+      "Matriculated": 39
     },
     {
       "Academic Career Description": "Undergraduate",
@@ -413,7 +413,7 @@
       "Total Admitted": 13,
       "Total Denied": 1,
       "Total Gross Deposited": 6,
-      "Total Net Deposited": 5
+      "Matriculated": 5
     },
     {
       "Academic Career Description": "Undergraduate",
@@ -426,7 +426,7 @@
       "Total Admitted": 101,
       "Total Denied": 255,
       "Total Gross Deposited": 44,
-      "Total Net Deposited": 38
+      "Matriculated": 38
     },
     {
       "Academic Career Description": "Undergraduate",
@@ -439,6 +439,6 @@
       "Total Admitted": 21,
       "Total Denied": 6,
       "Total Gross Deposited": 13,
-      "Total Net Deposited": 12
+      "Matriculated": 12
     }
   ]

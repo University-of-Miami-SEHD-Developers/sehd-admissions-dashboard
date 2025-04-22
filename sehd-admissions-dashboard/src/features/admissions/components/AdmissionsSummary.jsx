@@ -39,34 +39,34 @@ const AdmissionsSummary = ({ data }) => {
   const totalAdmitted = data.reduce((sum, item) => sum + item['Total Admitted'], 0);
   const totalDenied = data.reduce((sum, item) => sum + item['Total Denied'], 0);
   const totalGrossDeposited = data.reduce((sum, item) => sum + item['Total Gross Deposited'], 0);
-  const totalNetDeposited = data.reduce((sum, item) => sum + item['Total Net Deposited'], 0);
+  const matriculated = data.reduce((sum, item) => sum + item['Matriculated'], 0);
   
   // Calculate percentages
   const admissionRate = totalApplied > 0 ? ((totalAdmitted / totalApplied) * 100).toFixed(1) : 0;
   const denialRate = totalApplied > 0 ? ((totalDenied / totalApplied) * 100).toFixed(1) : 0;
-  const depositRate = totalAdmitted > 0 ? ((totalNetDeposited / totalAdmitted) * 100).toFixed(1) : 0;
+  const depositRate = totalAdmitted > 0 ? ((matriculated / totalAdmitted) * 100).toFixed(1) : 0;
   
   // Calculate by program type
   const byProgram = {
     'Bachelor\'s': {
       applied: data.filter(item => item.Program === 'Bachelor\'s').reduce((sum, item) => sum + item['Total Applied'], 0),
       admitted: data.filter(item => item.Program === 'Bachelor\'s').reduce((sum, item) => sum + item['Total Admitted'], 0),
-      net: data.filter(item => item.Program === 'Bachelor\'s').reduce((sum, item) => sum + item['Total Net Deposited'], 0)
+      net: data.filter(item => item.Program === 'Bachelor\'s').reduce((sum, item) => sum + item['Matriculated'], 0)
     },
     'Master\'s': {
       applied: data.filter(item => item.Program === 'Master\'s').reduce((sum, item) => sum + item['Total Applied'], 0),
       admitted: data.filter(item => item.Program === 'Master\'s').reduce((sum, item) => sum + item['Total Admitted'], 0),
-      net: data.filter(item => item.Program === 'Master\'s').reduce((sum, item) => sum + item['Total Net Deposited'], 0)
+      net: data.filter(item => item.Program === 'Master\'s').reduce((sum, item) => sum + item['Matriculated'], 0)
     },
     'Doctoral': {
       applied: data.filter(item => item.Program === 'Doctoral').reduce((sum, item) => sum + item['Total Applied'], 0),
       admitted: data.filter(item => item.Program === 'Doctoral').reduce((sum, item) => sum + item['Total Admitted'], 0),
-      net: data.filter(item => item.Program === 'Doctoral').reduce((sum, item) => sum + item['Total Net Deposited'], 0)
+      net: data.filter(item => item.Program === 'Doctoral').reduce((sum, item) => sum + item['Matriculated'], 0)
     },
     'Certificate': {
       applied: data.filter(item => item.Program === 'Certificate').reduce((sum, item) => sum + item['Total Applied'], 0),
       admitted: data.filter(item => item.Program === 'Certificate').reduce((sum, item) => sum + item['Total Admitted'], 0),
-      net: data.filter(item => item.Program === 'Certificate').reduce((sum, item) => sum + item['Total Net Deposited'], 0)
+      net: data.filter(item => item.Program === 'Certificate').reduce((sum, item) => sum + item['Matriculated'], 0)
     }
   };
 
@@ -114,10 +114,10 @@ const AdmissionsSummary = ({ data }) => {
         <Grid item xs={12} sm={6} md={2.4}>
           <SummaryCard elevation={3}>
             <ValueTypography variant="h4">
-              {totalNetDeposited}
+              {matriculated}
             </ValueTypography>
             <LabelTypography variant="subtitle1">
-              Net Deposited
+            Matriculated
             </LabelTypography>
           </SummaryCard>
         </Grid>

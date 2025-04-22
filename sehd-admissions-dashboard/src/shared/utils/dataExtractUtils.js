@@ -130,7 +130,7 @@ export const getEnrollmentTrendsByTerm = (department = null, program = null) => 
       term,
       applied: filteredData.reduce((sum, item) => sum + item['Total Applied'], 0),
       admitted: filteredData.reduce((sum, item) => sum + item['Total Admitted'], 0),
-      enrolled: filteredData.reduce((sum, item) => sum + item['Total Net Deposited'], 0)
+      enrolled: filteredData.reduce((sum, item) => sum + item['Matriculated'], 0)
     };
   });
   
@@ -156,13 +156,13 @@ export const getDepartmentEnrollmentData = (academicYear = '2023-24') => {
       department: dept,
       applied: deptData.reduce((sum, item) => sum + item['Total Applied'], 0),
       admitted: deptData.reduce((sum, item) => sum + item['Total Admitted'], 0),
-      enrolled: deptData.reduce((sum, item) => sum + item['Total Net Deposited'], 0),
+      enrolled: deptData.reduce((sum, item) => sum + item['Matriculated'], 0),
       admissionRate: calculateRate(
         deptData.reduce((sum, item) => sum + item['Total Admitted'], 0),
         deptData.reduce((sum, item) => sum + item['Total Applied'], 0)
       ),
       yieldRate: calculateRate(
-        deptData.reduce((sum, item) => sum + item['Total Net Deposited'], 0),
+        deptData.reduce((sum, item) => sum + item['Matriculated'], 0),
         deptData.reduce((sum, item) => sum + item['Total Admitted'], 0)
       )
     };
@@ -187,13 +187,13 @@ export const getProgramEnrollmentData = (academicYear = '2023-24') => {
       program: prog,
       applied: progData.reduce((sum, item) => sum + item['Total Applied'], 0),
       admitted: progData.reduce((sum, item) => sum + item['Total Admitted'], 0),
-      enrolled: progData.reduce((sum, item) => sum + item['Total Net Deposited'], 0),
+      enrolled: progData.reduce((sum, item) => sum + item['Matriculated'], 0),
       admissionRate: calculateRate(
         progData.reduce((sum, item) => sum + item['Total Admitted'], 0),
         progData.reduce((sum, item) => sum + item['Total Applied'], 0)
       ),
       yieldRate: calculateRate(
-        progData.reduce((sum, item) => sum + item['Total Net Deposited'], 0),
+        progData.reduce((sum, item) => sum + item['Matriculated'], 0),
         progData.reduce((sum, item) => sum + item['Total Admitted'], 0)
       )
     };
@@ -220,13 +220,13 @@ export const getAcademicPlanData = (academicYear = '2023-24') => {
       ...plan,
       applied: planData.reduce((sum, item) => sum + item['Total Applied'], 0),
       admitted: planData.reduce((sum, item) => sum + item['Total Admitted'], 0),
-      enrolled: planData.reduce((sum, item) => sum + item['Total Net Deposited'], 0),
+      enrolled: planData.reduce((sum, item) => sum + item['Matriculated'], 0),
       admissionRate: calculateRate(
         planData.reduce((sum, item) => sum + item['Total Admitted'], 0),
         planData.reduce((sum, item) => sum + item['Total Applied'], 0)
       ),
       yieldRate: calculateRate(
-        planData.reduce((sum, item) => sum + item['Total Net Deposited'], 0),
+        planData.reduce((sum, item) => sum + item['Matriculated'], 0),
         planData.reduce((sum, item) => sum + item['Total Admitted'], 0)
       )
     };
@@ -256,7 +256,7 @@ export const getAnnualEnrollmentByDeptProgram = () => {
         result[year][dept][prog] = {
           applied: filteredData.reduce((sum, item) => sum + item['Total Applied'], 0),
           admitted: filteredData.reduce((sum, item) => sum + item['Total Admitted'], 0),
-          enrolled: filteredData.reduce((sum, item) => sum + item['Total Net Deposited'], 0)
+          enrolled: filteredData.reduce((sum, item) => sum + item['Matriculated'], 0)
         };
       });
     });
@@ -281,13 +281,13 @@ export const getYearOverYearComparison = (
   const current = {
     applied: currentData.reduce((sum, item) => sum + item['Total Applied'], 0),
     admitted: currentData.reduce((sum, item) => sum + item['Total Admitted'], 0),
-    enrolled: currentData.reduce((sum, item) => sum + item['Total Net Deposited'], 0)
+    enrolled: currentData.reduce((sum, item) => sum + item['Matriculated'], 0)
   };
   
   const previous = {
     applied: previousData.reduce((sum, item) => sum + item['Total Applied'], 0),
     admitted: previousData.reduce((sum, item) => sum + item['Total Admitted'], 0),
-    enrolled: previousData.reduce((sum, item) => sum + item['Total Net Deposited'], 0)
+    enrolled: previousData.reduce((sum, item) => sum + item['Matriculated'], 0)
   };
   
   return {
@@ -329,26 +329,26 @@ export const getNewVsTransferData = (academicYear = '2023-24') => {
     new: {
       applied: newStudentData.reduce((sum, item) => sum + item['Total Applied'], 0),
       admitted: newStudentData.reduce((sum, item) => sum + item['Total Admitted'], 0),
-      enrolled: newStudentData.reduce((sum, item) => sum + item['Total Net Deposited'], 0),
+      enrolled: newStudentData.reduce((sum, item) => sum + item['Matriculated'], 0),
       admissionRate: calculateRate(
         newStudentData.reduce((sum, item) => sum + item['Total Admitted'], 0),
         newStudentData.reduce((sum, item) => sum + item['Total Applied'], 0)
       ),
       yieldRate: calculateRate(
-        newStudentData.reduce((sum, item) => sum + item['Total Net Deposited'], 0),
+        newStudentData.reduce((sum, item) => sum + item['Matriculated'], 0),
         newStudentData.reduce((sum, item) => sum + item['Total Admitted'], 0)
       )
     },
     transfer: {
       applied: transferStudentData.reduce((sum, item) => sum + item['Total Applied'], 0),
       admitted: transferStudentData.reduce((sum, item) => sum + item['Total Admitted'], 0),
-      enrolled: transferStudentData.reduce((sum, item) => sum + item['Total Net Deposited'], 0),
+      enrolled: transferStudentData.reduce((sum, item) => sum + item['Matriculated'], 0),
       admissionRate: calculateRate(
         transferStudentData.reduce((sum, item) => sum + item['Total Admitted'], 0),
         transferStudentData.reduce((sum, item) => sum + item['Total Applied'], 0)
       ),
       yieldRate: calculateRate(
-        transferStudentData.reduce((sum, item) => sum + item['Total Net Deposited'], 0),
+        transferStudentData.reduce((sum, item) => sum + item['Matriculated'], 0),
         transferStudentData.reduce((sum, item) => sum + item['Total Admitted'], 0)
       )
     }
@@ -384,7 +384,7 @@ export const getDepartmentDetailedData = (department, academicYear = '2023-24') 
     
     programs[program].applied += item['Total Applied'];
     programs[program].admitted += item['Total Admitted'];
-    programs[program].enrolled += item['Total Net Deposited'];
+    programs[program].enrolled += item['Matriculated'];
     
     // Group by academic plan
     const planCode = item['Academic Plan Code'];
@@ -401,7 +401,7 @@ export const getDepartmentDetailedData = (department, academicYear = '2023-24') 
     
     plans[planCode].applied += item['Total Applied'];
     plans[planCode].admitted += item['Total Admitted'];
-    plans[planCode].enrolled += item['Total Net Deposited'];
+    plans[planCode].enrolled += item['Matriculated'];
   });
   
   // Add plans to their respective programs
@@ -429,13 +429,13 @@ export const getDepartmentDetailedData = (department, academicYear = '2023-24') 
     academicYear,
     applied: deptData.reduce((sum, item) => sum + item['Total Applied'], 0),
     admitted: deptData.reduce((sum, item) => sum + item['Total Admitted'], 0),
-    enrolled: deptData.reduce((sum, item) => sum + item['Total Net Deposited'], 0),
+    enrolled: deptData.reduce((sum, item) => sum + item['Matriculated'], 0),
     admissionRate: calculateRate(
       deptData.reduce((sum, item) => sum + item['Total Admitted'], 0),
       deptData.reduce((sum, item) => sum + item['Total Applied'], 0)
     ),
     yieldRate: calculateRate(
-      deptData.reduce((sum, item) => sum + item['Total Net Deposited'], 0),
+      deptData.reduce((sum, item) => sum + item['Matriculated'], 0),
       deptData.reduce((sum, item) => sum + item['Total Admitted'], 0)
     ),
     programs,
@@ -458,13 +458,13 @@ export const getTermComparison = (term1, term2) => {
   const term1Stats = {
     applied: term1Data.reduce((sum, item) => sum + item['Total Applied'], 0),
     admitted: term1Data.reduce((sum, item) => sum + item['Total Admitted'], 0),
-    enrolled: term1Data.reduce((sum, item) => sum + item['Total Net Deposited'], 0)
+    enrolled: term1Data.reduce((sum, item) => sum + item['Matriculated'], 0)
   };
   
   const term2Stats = {
     applied: term2Data.reduce((sum, item) => sum + item['Total Applied'], 0),
     admitted: term2Data.reduce((sum, item) => sum + item['Total Admitted'], 0),
-    enrolled: term2Data.reduce((sum, item) => sum + item['Total Net Deposited'], 0)
+    enrolled: term2Data.reduce((sum, item) => sum + item['Matriculated'], 0)
   };
   
   return {
@@ -529,7 +529,7 @@ export const getLineChartData = (programType = 'Bachelor\'s') => {
         item => item.Department === dept && item.Program === programType
       );
       
-      return filteredData.reduce((sum, item) => sum + item['Total Net Deposited'], 0);
+      return filteredData.reduce((sum, item) => sum + item['Matriculated'], 0);
     });
     
     return {

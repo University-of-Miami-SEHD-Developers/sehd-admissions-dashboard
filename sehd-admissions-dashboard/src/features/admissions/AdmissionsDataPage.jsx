@@ -36,7 +36,7 @@ const columns = [
   { field: 'Total Admitted', headerName: 'Admitted', type: 'number', width: 100 },
   { field: 'Total Denied', headerName: 'Denied', type: 'number', width: 100 },
   { field: 'Total Gross Deposited', headerName: 'Gross Deposited', type: 'number', width: 150 },
-  { field: 'Total Net Deposited', headerName: 'Net Deposited', type: 'number', width: 150 }
+  { field: 'Matriculated', headerName: 'Matriculated', type: 'number', width: 150 }
 ];
 
 // Row transformation function

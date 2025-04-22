@@ -65,15 +65,15 @@ export const calculateProgramStats = (programType, academicYear = '2023-24') => 
   // Calculate totals
   const applied = programData.reduce((sum, item) => sum + item['Total Applied'], 0);
   const admitted = programData.reduce((sum, item) => sum + item['Total Admitted'], 0);
-  const netDeposited = programData.reduce((sum, item) => sum + item['Total Net Deposited'], 0);
+  const matriculated = programData.reduce((sum, item) => sum + item['Matriculated'], 0);
   
   // Calculate yield rate
-  const yieldRate = admitted > 0 ? (netDeposited / admitted) * 100 : 0;
+  const yieldRate = admitted > 0 ? (matriculated / admitted) * 100 : 0;
   
   return {
     applied,
     admitted, 
-    netDeposited,
+    matriculated,
     yieldRate: yieldRate.toFixed(1)
   };
 };
@@ -98,8 +98,8 @@ export const calculateTrends = (programType, currentYear = '2023-24', previousYe
     ? ((currentStats.admitted - previousStats.admitted) / previousStats.admitted) * 100 
     : 0;
     
-  const netDepositedChange = previousStats.netDeposited > 0 
-    ? ((currentStats.netDeposited - previousStats.netDeposited) / previousStats.netDeposited) * 100 
+  const matriculatedChange = previousStats.matriculated > 0 
+    ? ((currentStats.matriculated - previousStats.matriculated) / previousStats.matriculated) * 100 
     : 0;
     
   const yieldRateChange = previousStats.yieldRate > 0 
@@ -111,13 +111,13 @@ export const calculateTrends = (programType, currentYear = '2023-24', previousYe
     trends: {
       applied: determineTrend(appliedChange),
       admitted: determineTrend(admittedChange),
-      netDeposited: determineTrend(netDepositedChange),
+      matriculated: determineTrend(matriculatedChange),
       yieldRate: determineTrend(yieldRateChange, 0.5) // Use smaller threshold for yield rate
     },
     changes: {
       applied: appliedChange.toFixed(1),
       admitted: admittedChange.toFixed(1),
-      netDeposited: netDepositedChange.toFixed(1),
+      matriculated: matriculatedChange.toFixed(1),
       yieldRate: yieldRateChange.toFixed(1)
     }
   };
@@ -180,11 +180,11 @@ export const formatStatCardData = (stats, academicYear = '2023-24') => {
       data: Array(12).fill(parseFloat(stats.yieldRate))
     },
     {
-      title: 'Net Deposited',
-      value: stats.netDeposited.toString(),
+      title: 'Matriculated',
+      value: stats.matriculated.toString(),
       interval: `Academic Year ${academicYear}`,
-      trend: stats.trends.netDeposited,
-      data: createTrendData(stats.netDeposited)
+      trend: stats.trends.matriculated,
+      data: createTrendData(stats.matriculated)
     }
   ];
 };
@@ -207,15 +207,15 @@ export const getDepartmentStats = (programType, department) => {
   // Calculate totals
   const applied = filteredData.reduce((sum, item) => sum + item['Total Applied'], 0);
   const admitted = filteredData.reduce((sum, item) => sum + item['Total Admitted'], 0);
-  const netDeposited = filteredData.reduce((sum, item) => sum + item['Total Net Deposited'], 0);
+  const matriculated = filteredData.reduce((sum, item) => sum + item['Matriculated'], 0);
   
   // Calculate yield rate
-  const yieldRate = admitted > 0 ? (netDeposited / admitted) * 100 : 0;
+  const yieldRate = admitted > 0 ? (matriculated / admitted) * 100 : 0;
   
   return {
     applied,
     admitted,
-    netDeposited,
+    matriculated,
     yieldRate: yieldRate.toFixed(1)
   };
 };

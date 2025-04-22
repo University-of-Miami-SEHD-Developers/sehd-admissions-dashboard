@@ -80,7 +80,7 @@ const AnalysisCards = ({
       'Applied': 'applied',
       'Admitted': 'admitted',
       'Yield Rate': 'yieldRate',
-      'Net Deposited': 'netDeposited'
+      'Matriculated': 'matriculated'
     };
     return mapping[title] || title.toLowerCase();
   };
