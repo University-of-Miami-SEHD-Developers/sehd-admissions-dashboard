@@ -81,10 +81,10 @@ const GoalsPage = () => {
           {goalsData.bachelor[bachelorDept].map((program, index) => (
             <Grid item xs={12} md={6} lg={3} key={index}>
               <GradientGauge 
-                value={calculatePercentage(program.value, program.maxValue)} 
-                maxValue={100} 
+                value={program.value} 
+                maxValue={program.maxValue} 
                 title={program.title} 
-                subtitle="Enrollment Target"
+                subtitle="Fall 2025 Enrollment Target"
                 colors={['#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0']}
               />
             </Grid>
@@ -115,10 +115,10 @@ const GoalsPage = () => {
           {goalsData.master[masterDept].map((program, index) => (
             <Grid item xs={12} md={6} lg={3} key={index}>
               <GradientGauge 
-                value={calculatePercentage(program.value, program.maxValue)} 
-                maxValue={100} 
+                value={(program.value)} 
+                maxValue={program.maxValue} 
                 title={program.title} 
-                subtitle="Enrollment Target"
+                subtitle="Fall 2025 Enrollment Target"
                 colors={['#36a2eb', '#4bc0c0', '#4caf50', '#8bc34a']}
               />
             </Grid>
@@ -149,10 +149,10 @@ const GoalsPage = () => {
           {goalsData.doctoral[doctoralDept].map((program, index) => (
             <Grid item xs={12} md={6} lg={3} key={index}>
               <GradientGauge 
-                value={calculatePercentage(program.value, program.maxValue)} 
-                maxValue={100} 
+                value={program.value} 
+                maxValue={program.maxValue} 
                 title={program.title} 
-                subtitle="Enrollment Target"
+                subtitle="Fall 2025 Enrollment Target"
                 colors={['#9966ff', '#c9cbff', '#ff9f7f', '#fb5607']}
               />
             </Grid>

@@ -69,7 +69,7 @@ const AnalysisPage = () => {
           </Grid>
           <Grid item xs={12} md={4}>
             <DonutChart 
-              title="Distribution of Bachelor's Programs by Department" 
+              title="2023-2024 Distribution of Bachelor's Programs by Department" 
               data={donutData.bachelors}
               height={300}
             />
@@ -95,7 +95,7 @@ const AnalysisPage = () => {
           </Grid>
           <Grid item xs={12} md={4}>
             <DonutChart 
-              title="Distribution of Master's Programs by Department" 
+              title="2023-2024 Distribution of Master's Programs by Department" 
               data={donutData.masters}
               height={300}
             />
@@ -121,7 +121,7 @@ const AnalysisPage = () => {
           </Grid>
           <Grid item xs={12} md={4}>
             <DonutChart 
-              title="Distribution of Doctoral Programs by Department" 
+              title="2023-2024 Distribution of Doctoral Programs by Department" 
               data={donutData.doctoral}
               height={300}
             />
