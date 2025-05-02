@@ -28,14 +28,19 @@ jobs:
         run: |
           npm install
           npm run build
+          cp public/web.config dist/
+          cp server.js .
+          cp package.json dist/
+          cd dist
+          npm install --production
 
       - name: Confirm build output exists
         run: ls -R sehd-admissions-dashboard/dist
 
       - name: Zip the build output (dist/)
         run: |
-          cd sehd-admissions-dashboard/dist
-          zip -r ../../release.zip .
+          cd sehd-admissions-dashboard
+          zip -r ../release.zip dist/ server.js package.json
 
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
