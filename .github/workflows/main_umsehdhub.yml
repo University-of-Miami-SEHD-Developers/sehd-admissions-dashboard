@@ -29,13 +29,13 @@ jobs:
           npm install
           npm run build
 
-      - name: Confirm build output
+      - name: Confirm build output exists
         run: ls -R sehd-admissions-dashboard/dist
 
-      - name: Zip the build output
+      - name: Zip the build output (dist/)
         run: |
           cd sehd-admissions-dashboard/dist
-          zip -r ../../../release.zip .
+          zip -r ../../release.zip .
 
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
@@ -63,7 +63,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'umsehdhub'  # <-- Replace with your Azure Web App name
+          app-name: 'umsehdhub'  # Replace with your Azure Web App name
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3038BAB9F01B473493C040007CD4747E }}
