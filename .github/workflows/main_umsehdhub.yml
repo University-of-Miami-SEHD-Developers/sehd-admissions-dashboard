@@ -1,7 +1,6 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
+# GitHub Actions workflow to build and deploy a Vite React app to Azure App Service
 
-name: Build and deploy Node.js app to Azure Web App - umsehdhub
+name: Build and deploy Vite app to Azure Web App - umsehdhub
 
 on:
   push:
@@ -13,27 +12,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read # Required for actions/checkout
+      contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js version
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '22.x'
 
-      - name: npm install, build, and test
+      - name: Install dependencies and build Vite app
         working-directory: sehd-admissions-dashboard
         run: |
           npm install
-          npm run build --if-present
-          npm run test --if-present
+          npm run build
 
-      - name: Zip artifact for deployment
-        run: zip -r release.zip sehd-admissions-dashboard/build
+      - name: Confirm build output
+        run: ls -R sehd-admissions-dashboard/dist
 
-      - name: Upload artifact for deployment job
+      - name: Zip the build output
+        run: zip -r release.zip sehd-admissions-dashboard/dist
+
+      - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: node-app
@@ -52,14 +54,14 @@ jobs:
         with:
           name: node-app
 
-      - name: Unzip artifact for deployment
+      - name: Unzip artifact
         run: unzip release.zip
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'umsehdhub'
+          app-name: 'umsehdhub' # <-- your Azure Web App name
           slot-name: 'Production'
-          package: .
+          package: dist
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3038BAB9F01B473493C040007CD4747E }}
