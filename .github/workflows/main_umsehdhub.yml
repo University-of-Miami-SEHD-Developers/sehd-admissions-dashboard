@@ -31,8 +31,7 @@ jobs:
           npm run test --if-present
 
       - name: Zip artifact for deployment
-        working-directory: sehd-admissions-dashboard/build
-        run: zip -r ../../release.zip .
+        run: zip -r release.zip sehd-admissions-dashboard/build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
