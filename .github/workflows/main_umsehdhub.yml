@@ -1,4 +1,4 @@
-# GitHub Actions workflow to build and deploy a Vite React app to Azure App Service
+# GitHub Actions workflow to build and deploy a Vite React app to Azure Web App
 
 name: Build and deploy Vite app to Azure Web App - umsehdhub
 
@@ -33,7 +33,9 @@ jobs:
         run: ls -R sehd-admissions-dashboard/dist
 
       - name: Zip the build output
-        run: zip -r release.zip sehd-admissions-dashboard/dist
+        run: |
+          cd sehd-admissions-dashboard/dist
+          zip -r ../../../release.zip .
 
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
@@ -61,7 +63,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'umsehdhub' # <-- your Azure Web App name
+          app-name: 'umsehdhub'  # <-- Replace with your Azure Web App name
           slot-name: 'Production'
-          package: dist
+          package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3038BAB9F01B473493C040007CD4747E }}
