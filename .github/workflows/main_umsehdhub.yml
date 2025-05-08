@@ -69,6 +69,5 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'umsehdhub'  # Replace with your Azure Web App name
-          slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3038BAB9F01B473493C040007CD4747E }}
