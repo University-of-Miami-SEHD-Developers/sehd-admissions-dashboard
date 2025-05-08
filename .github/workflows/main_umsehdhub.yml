@@ -70,4 +70,4 @@ jobs:
         with:
           app-name: 'umsehdhub'  # Replace with your Azure Web App name
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3038BAB9F01B473493C040007CD4747E }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
