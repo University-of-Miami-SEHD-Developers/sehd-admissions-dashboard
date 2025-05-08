@@ -23,16 +23,15 @@ jobs:
         with:
           node-version: '22.x'
 
-      - name: Install dependencies and build Vite app
-        working-directory: sehd-admissions-dashboard
-        run: |
-          npm install
-          npm run build
-          cp public/web.config dist/
-          cp server.js .
-          cp package.json dist/
-          cd dist
-          npm install --production
+- name: Install dependencies and build Vite app
+  working-directory: sehd-admissions-dashboard
+  run: |
+    npm install
+    npm run build
+    cp public/web.config dist/
+    cp package.json dist/
+    cd dist
+    npm install --production
 
       - name: Confirm build output exists
         run: ls -R sehd-admissions-dashboard/dist
