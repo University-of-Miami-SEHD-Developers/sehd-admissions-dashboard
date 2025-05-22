@@ -29,7 +29,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "serve -s build"
+    "start": "serve -s dist"
   },
   "engines": {
     "node": "22.x"
