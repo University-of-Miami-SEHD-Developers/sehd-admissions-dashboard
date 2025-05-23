@@ -23,6 +23,34 @@ jobs:
           npm install
           npm run build
 
+      - name: Copy server files to dist
+        run: |
+          echo "Copying server.js to dist folder..."
+          cp server.js dist/
+          
+          echo "Creating production package.json..."
+          cat > dist/package.json << 'EOF'
+          {
+            "name": "sehd-admissions-dashboard",
+            "version": "1.0.0",
+            "scripts": {
+              "start": "node server.js"
+            },
+            "dependencies": {
+              "express": "^4.18.2"
+            },
+            "engines": {
+              "node": "22.x"
+            }
+          }
+          EOF
+          
+          echo "Contents of dist folder:"
+          ls -la dist/
+          
+          echo "Verifying server.js exists:"
+          cat dist/server.js | head -5
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
