@@ -2,7 +2,6 @@
 
 A comprehensive dashboard for monitoring admissions metrics, analyzing enrollment trends, and tracking program performance for the School of Education and Human Development at the University of Miami.
 
-![Dashboard Preview](./public/dashboard-preview.png)
 
 ## 📚 Overview
 
