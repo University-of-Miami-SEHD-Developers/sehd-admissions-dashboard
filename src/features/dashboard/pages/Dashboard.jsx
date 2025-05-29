@@ -156,6 +156,13 @@ const Dashboard = () => {
           kind: 'header',
           title: 'Marketing Campaign'
         },
+        {
+          kind: 'divider'
+        },
+        {
+          kind: 'header',
+          title: 'Scholarship Balances'
+        },
       ]}
     >
       <DashboardLayout>
