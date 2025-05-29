@@ -76,31 +76,31 @@ const goalsData = {
         ALL: [
           {
             title: 'Higher Education Administration, M.S.Ed.',
-            value: 'N/A',
-            maxValue: 'N/A',
+            value: '12',
+            maxValue: '23',
             department: 'EPS'
           },
           {
             title: 'Counseling, M.S.Ed.',
-            value: '14',
-            maxValue: '42',
+            value: '64',
+            maxValue: '64',
             department: 'EPS'
           },
           {
             title: 'Applied Physiology, M.S.Ed. ',
-            value: '12',
+            value: '10',
             maxValue: '12',
             department: 'KIN'
           },
           {
             title: 'Athletic Training, M.S.AT.',
-            value: 'N/A',
-            maxValue: 'N/A',
+            value: '17',
+            maxValue: '18',
             department: 'KIN'
           },
           {
             title: 'Sport Administration, M.S.Ed.',
-            value: '9',
+            value: '28',
             maxValue: '30',
             department: 'KIN'
           },
@@ -112,13 +112,13 @@ const goalsData = {
           },
           {
             title: 'Education and Social Change, M.S.Ed.',
-            value: '0',
+            value: '1',
             maxValue: '10',
             department: 'TAL'
           },
           {
             title: 'Special Education, M.S.Ed.',
-            value: '0',
+            value: '5',
             maxValue: '10',
             department: 'TAL'
           }
@@ -196,8 +196,8 @@ const goalsData = {
           },
           {
             title: 'Executive Ed.D. in Higher Education Leadership',
-            value: '1',
-            maxValue: '12',
+            value: '8',
+            maxValue: '14',
             department: 'EPS'
           },
           {
