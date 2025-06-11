@@ -1,73 +1,47 @@
-// src/context/AuthContext.jsx
+// src/features/auth/context/AuthContext.jsx (Updated to use API)
 import React, { createContext, useState, useEffect } from 'react';
+import { apiService } from '../../../services/apiService';
 
-// Create the authentication context
 export const AuthContext = createContext();
-
-// Mock user database for demonstration purposes
-// In a real application, you would use a backend service
-const MOCK_USERS = [
-  { 
-    email: 'admin@miami.edu', 
-    password: 'admin123', 
-    name: 'Admin User',
-    role: 'admin' 
-  },
-  { 
-    email: 'staff@miami.edu', 
-    password: 'staff123', 
-    name: 'Staff Member',
-    role: 'staff' 
-  }
-];
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Check if user is already logged in (from localStorage)
+  // Check if user is already logged in
   useEffect(() => {
-    const storedUser = localStorage.getItem('umiami_user');
-    if (storedUser) {
-      try {
-        const parsedUser = JSON.parse(storedUser);
-        setCurrentUser(parsedUser);
-      } catch (error) {
-        console.error('Failed to parse stored user data', error);
-        localStorage.removeItem('umiami_user');
+    const checkAuthStatus = async () => {
+      const token = apiService.getAuthToken();
+      if (token) {
+        try {
+          const user = await apiService.getCurrentUser();
+          setCurrentUser(user);
+        } catch (error) {
+          console.error('Failed to get current user:', error);
+          apiService.removeAuthToken();
+        }
       }
-    }
-    setLoading(false);
+      setLoading(false);
+    };
+
+    checkAuthStatus();
   }, []);
 
   // Login function
   const login = async (email, password) => {
-    // Simulate API request delay
-    await new Promise(resolve => setTimeout(resolve, 800));
-    
-    // Find user in mock database
-    const user = MOCK_USERS.find(
-      user => user.email === email && user.password === password
-    );
-    
-    if (!user) {
-      throw new Error('Invalid email or password');
+    try {
+      const response = await apiService.login(email, password);
+      setCurrentUser(response.user);
+      return response.user;
+    } catch (error) {
+      throw new Error(error.message || 'Login failed');
     }
-    
-    // Remove password before storing user object
-    const { password: _, ...safeUserData } = user;
-    
-    // Store user in state and localStorage
-    setCurrentUser(safeUserData);
-    localStorage.setItem('umiami_user', JSON.stringify(safeUserData));
-    
-    return safeUserData;
   };
 
   // Logout function
   const logout = () => {
     setCurrentUser(null);
-    localStorage.removeItem('umiami_user');
+    apiService.logout();
   };
 
   // Value object to be provided to consumers
