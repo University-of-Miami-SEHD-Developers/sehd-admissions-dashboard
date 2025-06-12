@@ -1,6 +1,6 @@
 // src/shared/components/ApiTestComponent.jsx
 import React, { useState, useEffect } from 'react';
-import { apiService } from '../services/apiService';
+import { apiService } from '../../services/apiService';
 import {
   Box,
   Typography,
