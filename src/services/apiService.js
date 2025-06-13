@@ -1,7 +1,8 @@
 // src/services/apiService.js
 // Updated for local testing with better error handling and logging
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5145/api';
+// Use import.meta.env for Vite instead of process.env
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5145/api';
 
 class ApiService {
     constructor() {
@@ -118,13 +119,13 @@ class ApiService {
         try {
             console.log('🔍 Testing API connection...');
             
-            // First, test if the API is reachable
-            const response = await fetch(`${this.baseURL.replace('/api', '')}/swagger/index.html`);
-            if (response.ok) {
+            // Test the health endpoint first
+            const healthResponse = await this.request('/health', { includeAuth: false });
+            if (healthResponse) {
                 console.log('✅ API server is running and reachable');
-                return { success: true, message: 'API server is running' };
+                return { success: true, message: 'API server is running', data: healthResponse };
             } else {
-                throw new Error(`Server responded with ${response.status}`);
+                throw new Error('No response from health endpoint');
             }
         } catch (error) {
             console.error('❌ API connection test failed:', error);
@@ -164,17 +165,17 @@ class ApiService {
     // Admission data methods
     async getAllAdmissionData() {
         console.log('📊 Getting all admission data...');
-        return this.get('/admissiondata');
+        return this.get('/admissionsdata');
     }
 
     async getAdmissionDataByTerm(termCode) {
         console.log(`📊 Getting admission data for term: ${termCode}`);
-        return this.get(`/admissiondata/term/${termCode}`);
+        return this.get(`/admissionsdata/term/${termCode}`);
     }
 
     async getAdmissionDataByAcademicYear(academicYear) {
         console.log(`📊 Getting admission data for academic year: ${academicYear}`);
-        return this.get(`/admissiondata/academic-year/${academicYear}`);
+        return this.get(`/admissionsdata/academic-year/${academicYear}`);
     }
 
     async filterAdmissionData(filters = {}) {
@@ -189,14 +190,14 @@ class ApiService {
         });
 
         const queryString = queryParams.toString();
-        const endpoint = queryString ? `/admissiondata/filter?${queryString}` : '/admissiondata/filter';
+        const endpoint = queryString ? `/admissionsdata/filter?${queryString}` : '/admissionsdata/filter';
         
         return this.get(endpoint);
     }
 
     async getAdmissionSummary(termCode) {
         console.log(`📈 Getting admission summary for term: ${termCode}`);
-        return this.get(`/admissiondata/summary/${termCode}`);
+        return this.get(`/admissionsdata/summary/${termCode}`);
     }
 
     // Department methods
