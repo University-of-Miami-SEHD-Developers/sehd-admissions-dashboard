@@ -100,6 +100,14 @@ const ApiTestComponent = () => {
     }
   ];
 
+  const debugTest = {
+    name: 'Database Debug Info',
+    key: 'debug',
+    description: 'Check what data is available in the database',
+    requiresAuth: true,
+    test: () => apiService.getDebugInfo()
+  };
+
   const runSingleTest = async (test) => {
     if (test.requiresAuth && !authToken && test.key !== 'login') {
       setTestResults(prev => ({

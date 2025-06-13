@@ -43,6 +43,12 @@ class ApiService {
         return headers;
     }
 
+    // Debug method for ApiService
+    async getDebugInfo() {
+        console.log('🔍 Getting debug info...');
+        return this.get('/admissionsdata/debug');
+    }
+
     // Generic request method with better error handling and logging
     async request(endpoint, options = {}) {
         const url = `${this.baseURL}${endpoint}`;
